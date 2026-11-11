@@ -18,8 +18,8 @@ export default function LayerCanvas({ demo, active, onActive, className }: Props
   return (
     <div className={className}>
       <div
-        className="relative w-full overflow-hidden rounded-2xl border"
-        style={{ borderColor: "var(--line)", background: "#0a0d12" }}
+        className="relative w-full overflow-hidden rounded-[12px] border"
+        style={{ borderColor: "var(--line)", background: "#f6f7f9" }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -47,8 +47,8 @@ export default function LayerCanvas({ demo, active, onActive, className }: Props
               <span className="hotspot-tag">{String(l.n).padStart(2, "0")}</span>
             </button>
           ))}
-        <div className="pointer-events-none absolute bottom-2 left-2 flex items-center gap-1.5 rounded-full border border-white/15 bg-black/55 px-2.5 py-1 text-[10.5px] text-white/80 backdrop-blur">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#5eead4]" />
+        <div className="pointer-events-none absolute bottom-2 left-2 flex items-center gap-1.5 rounded-[6px] border border-[#e5e8ec] bg-white/95 px-2 py-0.5 text-[10.5px] text-[#344054]">
+          <span className="h-1.5 w-1.5 rounded-full bg-[#2563EB]" />
           {asset.size} · {asset.layers.length} layers · {asset.level}
         </div>
       </div>

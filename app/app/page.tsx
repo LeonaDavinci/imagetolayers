@@ -25,7 +25,7 @@ export default function StudioPage() {
             Preview build · simulated processing
           </span>
           <h1 className="mt-4 text-[30px] leading-tight tracking-tight sm:text-[38px]">Layer studio</h1>
-          <p className="mt-2 max-w-[60ch] text-[14px] leading-relaxed text-[#98a2b3]">
+          <p className="mt-2 max-w-[60ch] text-[14px] leading-relaxed text-[#526071]">
             Drop an image, pick a level, and review the stack. Your file stays in the browser in this
             preview — nothing is uploaded, and the layer results shown come from the sample asset.
           </p>
@@ -41,7 +41,7 @@ export default function StudioPage() {
 
       <div className="mt-10 grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="glass p-5">
-          <p className="text-[11.5px] uppercase tracking-[0.12em] text-[#6b7482]">Levels and cost</p>
+          <p className="text-[11.5px] uppercase tracking-[0.12em] text-[#6b7280]">Levels and cost</p>
           <div className="mt-4 space-y-2">
             {(Object.keys(levelMeta) as (keyof typeof levelMeta)[]).map((key) => {
               const meta = levelMeta[key];
@@ -52,13 +52,13 @@ export default function StudioPage() {
                   style={{ borderColor: "var(--line)" }}
                 >
                   <div className="min-w-0">
-                    <p className="text-[13px] font-medium text-[#eef2f7]">
+                    <p className="text-[13px] font-medium text-[#101828]">
                       {key} · {meta.label}
-                      <span className="ml-2 text-[11px] font-normal text-[#a99bff]">{meta.range}</span>
+                      <span className="ml-2 text-[11px] font-normal text-[#1d4ed8]">{meta.range}</span>
                     </p>
-                    <p className="mt-0.5 truncate text-[11.5px] text-[#8b94a3]">{meta.blurb}</p>
+                    <p className="mt-0.5 truncate text-[11.5px] text-[#5b6879]">{meta.blurb}</p>
                   </div>
-                  <span className="shrink-0 rounded-full border px-2 py-0.5 text-[11px] text-[#b7c0cd]" style={{ borderColor: "var(--line)" }}>
+                  <span className="shrink-0 rounded-full border px-2 py-0.5 text-[11px] text-[#3f4c60]" style={{ borderColor: "var(--line)" }}>
                     {meta.credits} cr
                   </span>
                 </div>
@@ -69,22 +69,22 @@ export default function StudioPage() {
 
         <div className="space-y-4">
           <div className="glass p-5">
-            <p className="text-[11.5px] uppercase tracking-[0.12em] text-[#6b7482]">Export formats</p>
+            <p className="text-[11.5px] uppercase tracking-[0.12em] text-[#6b7280]">Export formats</p>
             <ul className="mt-3 space-y-2.5">
               {exportFormats.map((format) => (
                 <li key={format.name}>
-                  <p className="text-[13px] font-medium text-[#eef2f7]">{format.name}</p>
-                  <p className="text-[11.5px] text-[#8b94a3]">{format.note}</p>
+                  <p className="text-[13px] font-medium text-[#101828]">{format.name}</p>
+                  <p className="text-[11.5px] text-[#5b6879]">{format.note}</p>
                 </li>
               ))}
             </ul>
-            <p className="mt-3 text-[11px] text-[#6b7482]">
+            <p className="mt-3 text-[11px] text-[#6b7280]">
               Exports are disabled in this preview build.
             </p>
           </div>
 
           <div className="glass p-5">
-            <p className="text-[11.5px] uppercase tracking-[0.12em] text-[#6b7482]">Sample assets</p>
+            <p className="text-[11.5px] uppercase tracking-[0.12em] text-[#6b7280]">Sample assets</p>
             <div className="mt-3 grid grid-cols-2 gap-2">
               {(["ecommerce", "cover", "live2d", "youtube"] as const).map((key) => {
                 const asset = demoAssets[key];
@@ -92,7 +92,7 @@ export default function StudioPage() {
                   <div key={key} className="overflow-hidden rounded-lg border" style={{ borderColor: "var(--line)" }}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={asset.src} alt={asset.label} className="h-[72px] w-full object-cover" loading="lazy" />
-                    <p className="px-2 py-1 text-[10.5px] text-[#8b94a3]">
+                    <p className="px-2 py-1 text-[10.5px] text-[#5b6879]">
                       {asset.level} · {asset.layers.length} layers
                     </p>
                   </div>

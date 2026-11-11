@@ -10,7 +10,7 @@ export default function NotFound() {
       <h1 className="mt-5 text-[32px] leading-tight tracking-tight sm:text-[40px]">
         That page has not been separated yet
       </h1>
-      <p className="mx-auto mt-3 max-w-[46ch] text-[14.5px] leading-relaxed text-[#98a2b3]">
+      <p className="mx-auto mt-3 max-w-[46ch] text-[14.5px] leading-relaxed text-[#526071]">
         The URL does not match any published workflow. Start from the layer studio, or pick one of the
         four workflows below.
       </p>
@@ -34,7 +34,7 @@ export default function NotFound() {
           <Link
             key={link.href}
             href={link.href}
-            className="card-link rounded-xl border px-4 py-3 text-[13.5px] text-[#c3cad6]"
+            className="card-link rounded-xl border px-4 py-3 text-[13.5px] text-[#344054]"
             style={{ borderColor: "var(--line)" }}
           >
             {link.label} →

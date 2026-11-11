@@ -127,10 +127,10 @@ export default function PricingPage() {
             <span className="chip-dot" />
             Credits, not seats
           </span>
-          <h1 className="mt-5 text-[36px] leading-tight tracking-tight sm:text-[46px]">
+          <h1 className="mt-5 text-[30px] font-semibold leading-[1.1] tracking-[-0.03em] sm:text-[40px]">
             Pay per layer depth, not per user
           </h1>
-          <p className="mx-auto mt-4 max-w-[620px] text-[15px] leading-relaxed text-[#a7b0bf]">
+          <p className="mx-auto mt-4 max-w-[620px] text-[15px] leading-relaxed text-[#46536a]">
             One credit balance covers every workflow. A product photo at L2 and a character at L4 draw
             from the same pool, and failed runs are credited back automatically.
           </p>
@@ -142,30 +142,34 @@ export default function PricingPage() {
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className="relative flex flex-col rounded-2xl border p-6"
+              className="relative flex flex-col rounded-[14px] border p-6"
               style={{
-                borderColor: plan.featured ? "rgba(139,124,255,0.65)" : "var(--line)",
-                background: plan.featured
-                  ? "linear-gradient(160deg, rgba(139,124,255,0.14), rgba(45,212,191,0.05))"
-                  : "rgba(255,255,255,0.022)",
+                borderColor: plan.featured ? "#2563EB" : "var(--line)",
+                background: "#ffffff",
+                boxShadow: plan.featured ? "0 0 0 1px #2563EB, var(--shadow-md)" : "var(--shadow-xs)",
               }}
             >
               {plan.featured ? (
-                <span className="absolute right-5 top-5 rounded-full bg-[#8b7cff] px-2.5 py-0.5 text-[10px] font-medium text-[#0a0b10]">
+                <span className="absolute right-5 top-5 rounded-[5px] bg-[#EFF4FF] px-2 py-0.5 text-[10.5px] font-medium text-[#1d4ed8]">
                   Most popular
                 </span>
               ) : null}
-              <p className="text-[12px] uppercase tracking-[0.12em] text-[#6b7482]">{plan.name}</p>
-              <div className="mt-3 flex items-baseline gap-1.5">
-                <span className="text-[36px] font-medium tracking-tight text-[#f4f6f8]">{plan.price}</span>
-                <span className="text-[12px] text-[#8b94a3]">{plan.unit}</span>
+              <p className="text-[12px] uppercase tracking-[0.12em] text-[#6b7280]">{plan.name}</p>
+              <div className="mt-3 flex items-baseline gap-2">
+                <span className="text-[32px] font-semibold tracking-[-0.035em] text-[#101828]">{plan.price}</span>
+                <span className="text-[12px] text-[#6b7280]">{plan.unit.startsWith("one-time") ? "one-time" : "per month"}</span>
               </div>
-              <p className="mt-2 text-[13px] font-medium text-[#a99bff]">{plan.credits}</p>
-              <p className="mt-2 text-[12.5px] leading-relaxed text-[#8b94a3]">{plan.blurb}</p>
+              <p className="mt-1 text-[11.5px] text-[#6b7280]">
+                {plan.unit.startsWith("one-time") ? "No card required" : plan.unit.replace("per month, ", "")}
+              </p>
+              <p className="mt-2.5 text-[13px] font-medium text-[#1d4ed8]">{plan.credits}</p>
+              <p className="mt-2 text-[12.5px] leading-relaxed text-[#5b6879]">{plan.blurb}</p>
               <ul className="mt-5 flex-1 space-y-2">
                 {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2 text-[13px] text-[#b7c0cd]">
-                    <span className="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-[#2dd4bf]" />
+                  <li key={feature} className="flex items-start gap-2 text-[13px] text-[#3f4c60]">
+                    <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true" className="mt-[4px] shrink-0">
+                      <path d="M2.5 7.4L5.4 10.2L11.5 4" stroke="#2563EB" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
                     {feature}
                   </li>
                 ))}
@@ -185,12 +189,12 @@ export default function PricingPage() {
             title="What a separation costs in credits"
             lead="The level determines the cost, and the level is your choice — pick the shallowest one that supports the edits you actually need."
           />
-          <div className="overflow-hidden rounded-2xl border" style={{ borderColor: "var(--line)" }}>
+          <div className="scroll-x rounded-[12px] border" style={{ borderColor: "var(--line)" }}>
             <table className="w-full min-w-[520px] border-collapse text-left">
               <thead>
-                <tr style={{ background: "rgba(255,255,255,0.035)" }}>
+                <tr style={{ background: "#f8fafc" }}>
                   {["Level", "Layers", "Credits", "Best for"].map((head) => (
-                    <th key={head} className="px-4 py-3 text-[11.5px] uppercase tracking-[0.08em] text-[#8b94a3]">
+                    <th key={head} className="px-4 py-3 text-[11.5px] uppercase tracking-[0.08em] text-[#5b6879]">
                       {head}
                     </th>
                   ))}
@@ -201,19 +205,19 @@ export default function PricingPage() {
                   const meta = levelMeta[key];
                   return (
                     <tr key={key} style={{ borderTop: "1px solid var(--line)" }}>
-                      <td className="px-4 py-3 text-[13px] font-medium text-[#eef2f7]">
+                      <td className="px-4 py-3 text-[13px] font-medium text-[#101828]">
                         {key} {meta.label}
                       </td>
-                      <td className="px-4 py-3 text-[13px] text-[#a7b0bf]">{meta.range}</td>
-                      <td className="px-4 py-3 text-[13px] tabular-nums text-[#a7b0bf]">{meta.credits}</td>
-                      <td className="px-4 py-3 text-[13px] text-[#8b94a3]">{meta.blurb}</td>
+                      <td className="px-4 py-3 text-[13px] text-[#46536a]">{meta.range}</td>
+                      <td className="px-4 py-3 text-[13px] tabular-nums text-[#46536a]">{meta.credits}</td>
+                      <td className="px-4 py-3 text-[13px] text-[#5b6879]">{meta.blurb}</td>
                     </tr>
                   );
                 })}
               </tbody>
             </table>
           </div>
-          <p className="mt-3 text-[11.5px] text-[#6b7482]">
+          <p className="mt-3 text-[11.5px] text-[#6b7280]">
             A 12,000-credit Creator plan covers roughly 265 L2 runs or 133 L4 character runs.
           </p>
         </div>

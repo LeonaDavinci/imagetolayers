@@ -56,7 +56,7 @@ function SectionBlock({ section, index }: { section: Section; index: number }) {
         <h2 className="max-w-[30ch] text-[22px] leading-tight sm:text-[25px]">{section.heading}</h2>
       ) : null}
       {section.lead ? (
-        <p className="mt-2.5 max-w-[62ch] text-[14.5px] leading-relaxed text-[#98a2b3]">{section.lead}</p>
+        <p className="mt-2.5 max-w-[62ch] text-[14.5px] leading-relaxed text-[#526071]">{section.lead}</p>
       ) : null}
 
       {section.body?.length ? (
@@ -73,10 +73,10 @@ function SectionBlock({ section, index }: { section: Section; index: number }) {
             <li
               key={bullet.title}
               className="rounded-xl border px-3.5 py-3"
-              style={{ borderColor: "var(--line)", background: "rgba(255,255,255,0.02)" }}
+              style={{ borderColor: "var(--line)", background: "#ffffff" }}
             >
-              <span className="block text-[13.5px] font-medium text-[#eef2f7]">{bullet.title}</span>
-              <span className="mt-1 block text-[12.5px] leading-relaxed text-[#8b94a3]">{bullet.text}</span>
+              <span className="block text-[13.5px] font-medium text-[#101828]">{bullet.title}</span>
+              <span className="mt-1 block text-[12.5px] leading-relaxed text-[#5b6879]">{bullet.text}</span>
             </li>
           ))}
         </ul>
@@ -88,8 +88,8 @@ function SectionBlock({ section, index }: { section: Section; index: number }) {
             <li key={step.title} className="flex gap-3">
               <span className="step-num mt-0.5">{i + 1}</span>
               <span>
-                <span className="block text-[13.5px] font-medium text-[#eef2f7]">{step.title}</span>
-                <span className="mt-0.5 block text-[13px] leading-relaxed text-[#8b94a3]">{step.text}</span>
+                <span className="block text-[13.5px] font-medium text-[#101828]">{step.title}</span>
+                <span className="mt-0.5 block text-[13px] leading-relaxed text-[#5b6879]">{step.text}</span>
               </span>
             </li>
           ))}
@@ -100,11 +100,11 @@ function SectionBlock({ section, index }: { section: Section; index: number }) {
         <div className="scroll-x mt-5 rounded-xl border" style={{ borderColor: "var(--line)" }}>
           <table className="w-full min-w-[520px] border-collapse text-left">
             <thead>
-              <tr style={{ background: "rgba(255,255,255,0.035)" }}>
+              <tr style={{ background: "#f8fafc" }}>
                 {section.table.head.map((cell) => (
                   <th
                     key={cell}
-                    className="px-3.5 py-2.5 text-[11.5px] font-medium uppercase tracking-[0.08em] text-[#8b94a3]"
+                    className="px-3.5 py-2.5 text-[11.5px] font-medium uppercase tracking-[0.08em] text-[#5b6879]"
                   >
                     {cell}
                   </th>
@@ -117,7 +117,7 @@ function SectionBlock({ section, index }: { section: Section; index: number }) {
                   {row.map((cell, j) => (
                     <td
                       key={j}
-                      className={`px-3.5 py-2.5 text-[13px] ${j === 0 ? "font-medium text-[#eef2f7]" : "text-[#a7b0bf]"}`}
+                      className={`px-3.5 py-2.5 text-[13px] ${j === 0 ? "font-medium text-[#101828]" : "text-[#46536a]"}`}
                     >
                       {cell}
                     </td>
@@ -147,21 +147,21 @@ function SampleStack({ demo }: { demo: PageContent["demo"] }) {
       <LayerCanvas demo={demo} />
       <div className="glass p-4">
         <div className="flex items-center justify-between">
-          <p className="text-[11.5px] uppercase tracking-[0.12em] text-[#6b7482]">Sample stack</p>
-          <span className="text-[10.5px] text-[#6b7482]">{asset.level}</span>
+          <p className="text-[11.5px] uppercase tracking-[0.12em] text-[#6b7280]">Sample stack</p>
+          <span className="text-[10.5px] text-[#6b7280]">{asset.level}</span>
         </div>
         <ul className="mt-3 space-y-1.5">
           {asset.layers.map((layer) => (
-            <li key={layer.n} className="flex items-center gap-2.5 text-[12px] text-[#b7c0cd]">
-              <span className="w-4 text-[10px] tabular-nums text-[#6b7482]">
+            <li key={layer.n} className="flex items-center gap-2.5 text-[12px] text-[#3f4c60]">
+              <span className="w-4 text-[10px] tabular-nums text-[#6b7280]">
                 {String(layer.n).padStart(2, "0")}
               </span>
               <span className="truncate">{layer.name}</span>
-              <span className="ml-auto shrink-0 text-[10px] text-[#6b7482]">{layer.kind}</span>
+              <span className="ml-auto shrink-0 text-[10px] text-[#6b7280]">{layer.kind}</span>
             </li>
           ))}
         </ul>
-        <p className="mt-3 text-[11px] leading-relaxed text-[#6b7482]">
+        <p className="mt-3 text-[11px] leading-relaxed text-[#6b7280]">
           Depth order preserved. Reconstructed regions are estimates, not recovered pixels.
         </p>
       </div>
@@ -234,7 +234,7 @@ export default async function ContentPage({ params }: { params: Promise<{ slug: 
                 <Link href="/layer-levels" className="btn btn-ghost">
                   Layer levels
                 </Link>
-                <span className="text-[11.5px] text-[#6b7482]">
+                <span className="text-[11.5px] text-[#6b7280]">
                   {asset.layers.length} layers in the sample · {asset.size}
                 </span>
               </div>
@@ -252,19 +252,19 @@ export default async function ContentPage({ params }: { params: Promise<{ slug: 
             <div className="mt-10 grid grid-cols-1 gap-4 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
               <LayerCanvas demo={page.demo} />
               <div className="glass p-4">
-                <p className="text-[11.5px] uppercase tracking-[0.12em] text-[#6b7482]">Sample stack</p>
+                <p className="text-[11.5px] uppercase tracking-[0.12em] text-[#6b7280]">Sample stack</p>
                 <ul className="mt-3 space-y-1.5">
                   {asset.layers.map((layer) => (
-                    <li key={layer.n} className="flex items-center gap-2.5 text-[12px] text-[#b7c0cd]">
-                      <span className="w-4 text-[10px] tabular-nums text-[#6b7482]">
+                    <li key={layer.n} className="flex items-center gap-2.5 text-[12px] text-[#3f4c60]">
+                      <span className="w-4 text-[10px] tabular-nums text-[#6b7280]">
                         {String(layer.n).padStart(2, "0")}
                       </span>
                       <span className="truncate">{layer.name}</span>
-                      <span className="ml-auto text-[10px] text-[#6b7482]">{layer.kind}</span>
+                      <span className="ml-auto text-[10px] text-[#6b7280]">{layer.kind}</span>
                     </li>
                   ))}
                 </ul>
-                <p className="mt-3 text-[11px] leading-relaxed text-[#6b7482]">
+                <p className="mt-3 text-[11px] leading-relaxed text-[#6b7280]">
                   Depth order preserved. Reconstructed regions are estimates, not recovered pixels.
                 </p>
               </div>
@@ -305,7 +305,7 @@ export default async function ContentPage({ params }: { params: Promise<{ slug: 
           primary={{ label: "Open the layer studio", href: "/app" }}
           secondary={{ label: "See how it works", href: "/how-it-works" }}
         />
-        <p className="mt-4 text-[11px] text-[#6b7482]">Last updated {page.updated}. Preview build — processing is simulated.</p>
+        <p className="mt-4 text-[11px] text-[#6b7280]">Last updated {page.updated}. Preview build — processing is simulated.</p>
       </section>
     </>
   );

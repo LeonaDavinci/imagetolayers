@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import LayerWorkbench from "@/components/layer-workbench";
 import JsonLd from "@/components/json-ld";
-import { CtaBand, DemoStrip, SectionHeading } from "@/components/ui";
+import { CtaBand, DemoStrip, SectionHeading, TrustRow } from "@/components/ui";
 import { demoAssets, levelMeta } from "@/lib/content/layers";
 import { buildMetadata, faqSchema, softwareSchema } from "@/lib/seo";
 
@@ -74,6 +74,38 @@ const pillars = [
   },
 ];
 
+const facts = [
+  { label: "Export", value: "Layered PSD · ZIP · PNG" },
+  { label: "Input", value: "JPG, PNG, WebP · 10 MB" },
+  { label: "Depth order", value: "Preserved per layer" },
+  { label: "Retention", value: "Auto-deleted after 7 days" },
+];
+
+const plans = [
+  {
+    name: "Starter trial",
+    price: "$0",
+    note: "20 one-time credits",
+    features: ["7-day file retention", "L1 and L2 levels", "PNG and ZIP export"],
+    cta: "Start free",
+  },
+  {
+    name: "Creator",
+    price: "$10",
+    note: "per month, billed yearly at $120",
+    features: ["12,000 credits / year", "All four levels", "PSD export", "30-day retention", "Commercial use"],
+    cta: "Choose Creator",
+    featured: true,
+  },
+  {
+    name: "Studio",
+    price: "$30",
+    note: "per month, billed yearly at $360",
+    features: ["36,000 credits / year", "Priority processing", "Team seats", "One-year retention", "API access"],
+    cta: "Choose Studio",
+  },
+];
+
 export default function HomePage() {
   return (
     <>
@@ -90,59 +122,64 @@ export default function HomePage() {
         ]}
       />
 
-      <section className="relative overflow-hidden pt-16 pb-10 sm:pt-24">
-        <div className="pointer-events-none absolute inset-0 grid-lines opacity-60" aria-hidden="true" />
-        <div className="container-wide relative">
+      <section className="pt-12 pb-10 sm:pt-16">
+        <div className="container-wide">
           <div className="mx-auto max-w-[760px] text-center">
-            <span className="chip mx-auto">
+            <span className="chip">
               <span className="chip-dot" />
               Preview build · separation is simulated
             </span>
-            <h1 className="mt-5 text-[38px] leading-[1.05] tracking-tight sm:text-[58px]">
+            <h1 className="mt-5 text-[31px] font-semibold leading-[1.08] tracking-[-0.032em] sm:text-[46px]">
               Turn a flat image into <span className="grad-text">editable layers</span>
             </h1>
-            <p className="mx-auto mt-5 max-w-[600px] text-[15.5px] leading-relaxed text-[#a7b0bf]">
+            <p className="mx-auto mt-4 max-w-[640px] text-[15.5px] leading-[1.7] text-[#46536a] sm:text-[16.5px]">
               Separate the subject, props, text regions and background — then rebuild what was hidden
               behind them. Built for product photography, covers, Live2D characters and thumbnails.
             </p>
-            <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
+            <div className="mt-7 flex flex-col justify-center gap-2.5 sm:flex-row sm:items-center">
               <Link href="/app" className="btn btn-primary">
                 Separate an image
               </Link>
               <Link href="/showcase" className="btn btn-ghost">
-                See real examples
+                See a real example
               </Link>
             </div>
-            <p className="mt-4 text-[12px] text-[#6b7482]">
-              Free trial credits · no card · JPG, PNG, WebP up to 10 MB
-            </p>
+            <div className="mt-5 flex justify-center">
+              <TrustRow
+                items={["No credit card", "20 free credits", "Files deleted after 7 days", "Not used for training"]}
+              />
+            </div>
           </div>
 
-          <div className="mt-12">
+          <div className="mt-10">
             <LayerWorkbench demo="ecommerce" />
           </div>
 
-          <div className="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11.5px] text-[#6b7482]">
-            <span>Alpha-clean edges</span>
-            <span aria-hidden="true">·</span>
-            <span>Occlusion reconstruction</span>
-            <span aria-hidden="true">·</span>
-            <span>PSD, ZIP and PNG export</span>
-            <span aria-hidden="true">·</span>
-            <span>Files not used for training</span>
-          </div>
+          <dl
+            className="mt-4 grid grid-cols-2 gap-px overflow-hidden rounded-[12px] border bg-[#e5e8ec] lg:grid-cols-4"
+            style={{ borderColor: "var(--line)" }}
+          >
+            {facts.map((fact) => (
+              <div key={fact.label} className="bg-white px-4 py-3">
+                <dt className="text-[10.5px] font-medium uppercase tracking-[0.11em] text-[#6b7280]">
+                  {fact.label}
+                </dt>
+                <dd className="mt-0.5 text-[12.5px] text-[#344054]">{fact.value}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
-      <section className="py-14">
+      <section className="py-14" style={{ borderTop: "1px solid var(--line)" }}>
         <div className="container-wide">
-          <div className="flex flex-wrap items-end justify-between gap-3">
+          <div className="flex flex-wrap items-end justify-between gap-4">
             <SectionHeading
               kicker="Four workflows"
               title="One tool, four ideas of a good layer"
               lead="A product photo, a book cover, a rig-ready character and a thumbnail do not want the same stack. Each workflow sets a default level for its own reason."
             />
-            <Link href="/layer-levels" className="btn btn-ghost btn-sm mb-6">
+            <Link href="/layer-levels" className="btn btn-ghost btn-sm mb-7">
               How levels work
             </Link>
           </div>
@@ -151,32 +188,107 @@ export default function HomePage() {
               <Link
                 key={pillar.slug}
                 href={pillar.slug}
-                className="card-link group overflow-hidden rounded-2xl border"
-                style={{ borderColor: "var(--line)", background: "rgba(255,255,255,0.025)" }}
+                className="card-link group overflow-hidden rounded-[12px] border bg-white"
+                style={{ borderColor: "var(--line)" }}
               >
-                <div className="grid grid-cols-1 sm:min-h-[158px] sm:grid-cols-[152px_1fr]">
-                  <div className="relative h-[150px] overflow-hidden sm:h-full sm:min-h-[158px]">
+                <div className="grid grid-cols-1 sm:min-h-[168px] sm:grid-cols-[168px_1fr]">
+                  <div
+                    className="relative h-[150px] overflow-hidden border-b sm:h-full sm:min-h-[168px] sm:border-b-0 sm:border-r"
+                    style={{ borderColor: "var(--line)" }}
+                  >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={pillar.meta}
                       alt={`${pillar.title} example`}
                       loading="lazy"
-                      className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+                      className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
                     />
-                    <span className="absolute left-2 top-2 rounded-full border border-white/15 bg-black/60 px-2 py-0.5 text-[10px] text-white/85 backdrop-blur">
+                    <span
+                      className="absolute left-2 top-2 rounded-[5px] border bg-white/95 px-1.5 py-0.5 text-[10px] font-medium text-[#344054]"
+                      style={{ borderColor: "var(--line)" }}
+                    >
                       {pillar.level}
                     </span>
                   </div>
                   <div className="p-4">
-                    <h3 className="text-[15px] font-medium text-[#eef2f7]">{pillar.title}</h3>
-                    <p className="mt-1.5 text-[12.5px] leading-relaxed text-[#8b94a3]">{pillar.body}</p>
-                    <span className="mt-3 inline-block text-[11.5px] text-[#a99bff] opacity-0 transition group-hover:opacity-100">
-                      Open workflow →
-                    </span>
+                    <h3 className="text-[15px] font-medium text-[#101828]">{pillar.title}</h3>
+                    <p className="mt-1.5 text-[12.5px] leading-relaxed text-[#5b6879]">{pillar.body}</p>
+                    <span className="mt-3 inline-block text-[11.5px] text-[#1d4ed8]">Open workflow →</span>
                   </div>
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-soft py-14">
+        <div className="container-wide grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div>
+            <SectionHeading
+              kicker="The difference"
+              title="A cutout removes the scene. Layers keep it."
+              lead="Background removers return one subject on transparency. Move it and a silhouette-shaped hole appears where it used to be — because the scene no longer exists."
+            />
+            <ul className="space-y-4">
+              {[
+                {
+                  t: "Reconstructed, not discarded",
+                  d: "The base layer continues behind the subject, so a repositioned product still sits in a coherent room.",
+                },
+                {
+                  t: "Every element independent",
+                  d: "Props, surfaces, text regions and graphic devices arrive as separate layers with depth order.",
+                },
+                {
+                  t: "Exportable, not locked in",
+                  d: "PNG, ZIP and layered PSD that open in Photoshop, Affinity, Photopea, Cubism or Spine.",
+                },
+              ].map((item, i) => (
+                <li key={item.t} className="flex gap-3">
+                  <span className="step-num mt-0.5">{String(i + 1).padStart(2, "0")}</span>
+                  <span>
+                    <span className="block text-[14.5px] font-medium text-[#101828]">{item.t}</span>
+                    <span className="mt-0.5 block text-[13px] leading-relaxed text-[#5b6879]">{item.d}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6">
+              <Link href="/compare/remove-bg-vs-image-to-layers" className="btn btn-ghost btn-sm">
+                Compare the two workflows
+              </Link>
+            </div>
+          </div>
+          <div>
+            <div
+              className="overflow-hidden rounded-[12px] border bg-white"
+              style={{ borderColor: "var(--line)", boxShadow: "var(--shadow-sm)" }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={demoAssets.ecommerce.src}
+                alt="Product photo separated into seven editable layers"
+                className="w-full"
+                width={demoAssets.ecommerce.width}
+                height={demoAssets.ecommerce.height}
+                loading="lazy"
+              />
+            </div>
+            <div className="mt-3 grid grid-cols-2 gap-2">
+              {demoAssets.ecommerce.layers.slice(0, 4).map((layer) => (
+                <div
+                  key={layer.n}
+                  className="flex items-center gap-2 rounded-[8px] border bg-white px-2.5 py-2"
+                  style={{ borderColor: "var(--line)" }}
+                >
+                  <span className="text-[10px] tabular-nums text-[#6b7280]">
+                    {String(layer.n).padStart(2, "0")}
+                  </span>
+                  <span className="truncate text-[11.5px] text-[#344054]">{layer.name}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -203,16 +315,18 @@ export default function HomePage() {
                 <Link
                   key={key}
                   href={href}
-                  className="card-link rounded-2xl border p-4"
-                  style={{ borderColor: "var(--line)", background: "rgba(255,255,255,0.025)" }}
+                  className="card-link rounded-[12px] border bg-white p-4"
+                  style={{ borderColor: "var(--line)" }}
                 >
                   <div className="flex items-baseline justify-between">
-                    <span className="text-[11px] uppercase tracking-[0.12em] text-[#6b7482]">{key}</span>
-                    <span className="text-[11px] text-[#8b94a3]">{meta.credits} cr</span>
+                    <span className="text-[11px] font-medium uppercase tracking-[0.11em] text-[#6b7280]">
+                      {key}
+                    </span>
+                    <span className="text-[11px] tabular-nums text-[#6b7280]">{meta.credits} cr</span>
                   </div>
-                  <h3 className="mt-1.5 text-[16px] font-medium text-[#eef2f7]">{meta.label}</h3>
-                  <p className="mt-0.5 text-[11.5px] text-[#a99bff]">{meta.range}</p>
-                  <p className="mt-2 text-[12px] leading-relaxed text-[#8b94a3]">{meta.blurb}</p>
+                  <h3 className="mt-1.5 text-[15.5px] font-medium text-[#101828]">{meta.label}</h3>
+                  <p className="mt-0.5 text-[11.5px] text-[#1d4ed8]">{meta.range}</p>
+                  <p className="mt-2 text-[12px] leading-relaxed text-[#5b6879]">{meta.blurb}</p>
                 </Link>
               );
             })}
@@ -220,75 +334,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-14">
-        <div className="container-wide grid gap-10 lg:grid-cols-2 lg:items-center">
-          <div>
-            <SectionHeading
-              kicker="The difference"
-              title="A cutout removes the scene. Layers keep it."
-              lead="Background removers return one subject on transparency. Move it and a silhouette-shaped hole appears where it used to be — because the scene no longer exists."
-            />
-            <ul className="space-y-4">
-              {[
-                {
-                  t: "Reconstructed, not discarded",
-                  d: "The base layer continues behind the subject, so a repositioned product still sits in a coherent room.",
-                },
-                {
-                  t: "Every element independent",
-                  d: "Props, surfaces, text regions and graphic devices arrive as separate layers with depth order.",
-                },
-                {
-                  t: "Exportable, not locked in",
-                  d: "PNG, ZIP and layered PSD that open in Photoshop, Affinity, Photopea, Cubism or Spine.",
-                },
-              ].map((item, i) => (
-                <li key={item.t} className="flex gap-3">
-                  <span className="step-num mt-0.5">{String(i + 1).padStart(2, "0")}</span>
-                  <span>
-                    <span className="block text-[14.5px] font-medium text-[#eef2f7]">{item.t}</span>
-                    <span className="mt-0.5 block text-[13px] leading-relaxed text-[#8b94a3]">{item.d}</span>
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-6">
-              <Link href="/compare/remove-bg-vs-image-to-layers" className="btn btn-ghost btn-sm">
-                Compare the two workflows
-              </Link>
-            </div>
-          </div>
-          <div className="relative">
-            <div className="overflow-hidden rounded-2xl border" style={{ borderColor: "var(--line)" }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={demoAssets.ecommerce.src}
-                alt="Product photo separated into seven editable layers"
-                className="w-full"
-                width={demoAssets.ecommerce.width}
-                height={demoAssets.ecommerce.height}
-                loading="lazy"
-              />
-            </div>
-            <div className="mt-3 grid grid-cols-2 gap-2">
-              {demoAssets.ecommerce.layers.slice(0, 4).map((layer) => (
-                <div
-                  key={layer.n}
-                  className="flex items-center gap-2 rounded-xl border px-2.5 py-2"
-                  style={{ borderColor: "var(--line)", background: "rgba(255,255,255,0.02)" }}
-                >
-                  <span className="text-[10px] tabular-nums text-[#6b7482]">
-                    {String(layer.n).padStart(2, "0")}
-                  </span>
-                  <span className="truncate text-[11.5px] text-[#c3cad6]">{layer.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-14">
+      <section className="py-14" style={{ borderTop: "1px solid var(--line)" }}>
         <div className="container-wide">
           <SectionHeading
             kicker="Examples"
@@ -297,14 +343,14 @@ export default function HomePage() {
           />
           <DemoStrip />
           <div className="mt-4">
-            <Link href="/showcase" className="text-[12.5px] text-[#a99bff] hover:underline">
+            <Link href="/showcase" className="text-[12.5px] text-[#1d4ed8] hover:underline">
               Read the breakdown for each example →
             </Link>
           </div>
         </div>
       </section>
 
-      <section className="py-14">
+      <section className="section-soft py-14">
         <div className="container-wide">
           <SectionHeading
             kicker="Workflow"
@@ -313,19 +359,21 @@ export default function HomePage() {
           />
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { t: "Upload", d: "JPG, PNG or WebP up to 10 MB. The sample loads instantly if you want to try the flow." },
+              {
+                t: "Upload",
+                d: "JPG, PNG or WebP up to 10 MB. The sample loads instantly if you want to try the flow.",
+              },
               { t: "Pick a level", d: "L1 to L4, with a recommendation based on the workflow you came from." },
-              { t: "Review the stack", d: "Toggle layers, check the reconstructed area, split anything that still mixes two decisions." },
+              {
+                t: "Review the stack",
+                d: "Toggle layers, check the reconstructed area, split anything that still mixes two decisions.",
+              },
               { t: "Export", d: "Transparent PNGs, a ZIP with depth order, or a layered PSD." },
             ].map((step, i) => (
-              <div
-                key={step.t}
-                className="rounded-2xl border p-4"
-                style={{ borderColor: "var(--line)", background: "rgba(255,255,255,0.022)" }}
-              >
+              <div key={step.t} className="rounded-[12px] border bg-white p-4" style={{ borderColor: "var(--line)" }}>
                 <span className="step-num">{i + 1}</span>
-                <h3 className="mt-3 text-[14.5px] font-medium text-[#eef2f7]">{step.t}</h3>
-                <p className="mt-1 text-[12.5px] leading-relaxed text-[#8b94a3]">{step.d}</p>
+                <h3 className="mt-3 text-[14.5px] font-medium text-[#101828]">{step.t}</h3>
+                <p className="mt-1 text-[12.5px] leading-relaxed text-[#5b6879]">{step.d}</p>
               </div>
             ))}
           </div>
@@ -340,38 +388,45 @@ export default function HomePage() {
             lead="One balance across every workflow. Failed runs are credited back; completed runs are not."
           />
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-            {[
-              { name: "Starter trial", price: "$0", note: "20 one-time credits", features: ["7-day file retention", "L1 and L2 levels", "PNG and ZIP export"], cta: "Start free" },
-              { name: "Creator", price: "$10", note: "per month, billed yearly at $120", features: ["12,000 credits / year", "All four levels", "PSD export", "30-day retention", "Commercial use"], cta: "Choose Creator", featured: true },
-              { name: "Studio", price: "$30", note: "per month, billed yearly at $360", features: ["36,000 credits / year", "Priority processing", "Team seats", "One-year retention", "API access"], cta: "Choose Studio" },
-            ].map((plan) => (
+            {plans.map((plan) => (
               <div
                 key={plan.name}
-                className="relative rounded-2xl border p-5"
+                className="relative rounded-[14px] border bg-white p-5"
                 style={{
-                  borderColor: plan.featured ? "rgba(139,124,255,0.65)" : "var(--line)",
-                  background: plan.featured
-                    ? "linear-gradient(160deg, rgba(139,124,255,0.13), rgba(45,212,191,0.05))"
-                    : "rgba(255,255,255,0.022)",
+                  borderColor: plan.featured ? "#2563EB" : "var(--line)",
+                  boxShadow: plan.featured ? "0 0 0 1px #2563EB, var(--shadow-md)" : "var(--shadow-xs)",
                 }}
               >
                 {plan.featured ? (
-                  <span className="absolute right-4 top-4 rounded-full bg-[#8b7cff] px-2 py-0.5 text-[10px] font-medium text-[#0a0b10]">
+                  <span className="absolute right-4 top-4 rounded-[5px] bg-[#EFF4FF] px-2 py-0.5 text-[10.5px] font-medium text-[#1d4ed8]">
                     Most popular
                   </span>
                 ) : null}
-                <p className="text-[12px] uppercase tracking-[0.12em] text-[#6b7482]">{plan.name}</p>
-                <p className="mt-2 text-[30px] font-medium tracking-tight text-[#f4f6f8]">
+                <p className="text-[12px] font-medium uppercase tracking-[0.11em] text-[#6b7280]">{plan.name}</p>
+                <p className="mt-2 flex items-baseline gap-1 text-[30px] font-semibold tracking-[-0.03em] text-[#101828]">
                   {plan.price}
-                  <span className="ml-1 text-[12px] font-normal text-[#8b94a3]">
-                    {plan.price === "$0" ? "" : "/mo"}
-                  </span>
+                  <span className="text-[12px] font-normal text-[#6b7280]">{plan.price === "$0" ? "" : "/mo"}</span>
                 </p>
-                <p className="mt-0.5 text-[11.5px] text-[#6b7482]">{plan.note}</p>
+                <p className="mt-0.5 text-[11.5px] text-[#6b7280]">{plan.note}</p>
                 <ul className="mt-4 space-y-1.5">
                   {plan.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2 text-[12.5px] text-[#b7c0cd]">
-                      <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-[#2dd4bf]" />
+                    <li key={f} className="flex items-start gap-2 text-[12.5px] text-[#3f4c60]">
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 14 14"
+                        fill="none"
+                        aria-hidden="true"
+                        className="mt-[3px] shrink-0"
+                      >
+                        <path
+                          d="M2.5 7.4L5.4 10.2L11.5 4"
+                          stroke="#2563EB"
+                          strokeWidth="1.6"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
                       {f}
                     </li>
                   ))}
@@ -382,10 +437,13 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+          <p className="mt-4 text-[11.5px] text-[#6b7280]">
+            Prices in USD. Cancel anytime. Failed separations are refunded automatically.
+          </p>
         </div>
       </section>
 
-      <section className="py-14">
+      <section className="py-14" style={{ borderTop: "1px solid var(--line)" }}>
         <div className="container-narrow">
           <SectionHeading kicker="FAQ" title="Questions worth answering before you upload" />
           <div className="space-y-2">
@@ -399,13 +457,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="pb-20 pt-4">
+      <section className="pb-20 pt-2">
         <div className="container-wide">
           <CtaBand
             heading="Separate your first image in two minutes"
             body="The sample loads without an account. Upload your own file when you are ready, and keep the layers when the composition changes."
             primary={{ label: "Open the layer studio", href: "/app" }}
             secondary={{ label: "See the examples", href: "/showcase" }}
+            footnote="No credit card required · 20 free credits on signup · files auto-deleted after 7 days"
           />
         </div>
       </section>

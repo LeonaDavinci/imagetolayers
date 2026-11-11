@@ -33,13 +33,13 @@ export const metadata: Metadata = {
     title: "Image Layers — Turn flat images into editable layers",
     description: site.description,
     url: site.url,
-    images: [{ url: "/demo/ecommerce.webp", width: 1024, height: 968, alt: "Layered skincare product photo" }],
+    images: [{ url: "/brand/og.png", width: 1200, height: 630, alt: "Image Layers — turn flat images into editable layers" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Image Layers — Turn flat images into editable layers",
     description: site.description,
-    images: ["/demo/ecommerce.webp"],
+    images: ["/brand/og.png"],
   },
   robots: {
     index: true,
@@ -53,15 +53,19 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
-    apple: [{ url: "/icon.svg" }],
+    icon: [
+      { url: "/favicon.ico", sizes: "16x16 32x32 48x48 64x64", type: "image/x-icon" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
   category: "technology",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#07090d",
-  colorScheme: "dark",
+  themeColor: "#ffffff",
+  colorScheme: "light",
   width: "device-width",
   initialScale: 1,
 };
