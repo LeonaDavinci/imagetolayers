@@ -6,7 +6,7 @@ export const youtubePages: PageContent[] = [
     cluster: "youtube",
     title: "Image to Layers — YouTube Thumbnail, Subject and Text Apart",
     description:
-      "Image to Layers — separate a finished YouTube thumbnail into presenter, text regions, arrows, stickers and background layers. Redesign or re-title without rebuilding the artwork.",
+      "Image to Layers — separate a finished YouTube thumbnail into presenter, text regions, arrows, stickers and background layers. Re-title without rebuilding artwork.",
     h1: "Image to Layers: turn a finished thumbnail into editable layers",
     eyebrow: "YouTube · L3 default",
     intro: [
@@ -122,7 +122,7 @@ export const youtubePages: PageContent[] = [
     cluster: "youtube",
     title: "Image to Layers — Change Thumbnail Text, No Source File",
     description:
-      "Image to Layers — remove the old headline from a finished thumbnail, keep the presenter and background, and set new copy in the same space. No source file, no reshoot.",
+      "Image to Layers — remove the old headline from a finished thumbnail, keep the presenter and background, and set new copy in the same space. No source file needed.",
     h1: "Image to Layers: change the words on a finished thumbnail",
     eyebrow: "Thumbnails · text replacement",
     intro: [
@@ -314,7 +314,7 @@ export const youtubePages: PageContent[] = [
     cluster: "youtube",
     title: "Image to Layers — Thumbnail A/B Tests From One Stack",
     description:
-      "Image to Layers — test thumbnail variants that differ in one variable at a time. Separate the stack once, change the headline or the subject, and run a clean comparison.",
+      "Image to Layers — test thumbnail variants that differ in one variable at a time. Separate the stack once, change the headline or subject, and run a clean test.",
     h1: "Image to Layers: thumbnail tests that isolate one variable",
     eyebrow: "Thumbnails · testing",
     intro: [

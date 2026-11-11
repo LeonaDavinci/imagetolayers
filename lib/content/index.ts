@@ -41,7 +41,11 @@ export function breadcrumbItems(slug: string): { name: string; path: string }[] 
     path += `/${part}`;
     const full = parts.slice(0, i + 1).join("/");
     const page = index.get(full);
-    items.push({ name: page ? page.eyebrow.split("·")[0].trim() : slugToLabel(part), path });
+    // Only emit crumb levels that resolve to a real page: a crumb pointing at a
+    // missing hub (/compare, /guides) would send crawlers and users to a 404.
+    if (!page) return;
+    const name = page.eyebrow.split("·")[0].trim() || slugToLabel(part);
+    items.push({ name, path });
   });
   return items;
 }

@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { demoAssets, type LayerHotspot } from "@/lib/content/layers";
 import type { DemoKey } from "@/lib/content/types";
 

@@ -101,7 +101,7 @@ export const comparePages: PageContent[] = [
     cluster: "compare",
     title: "Image to Layers — Canva Magic Layers Alternative",
     description:
-      "Image to Layers — Magic Layers separates elements inside Canva. If you need layered PSD export, named layers, depth order and rig-ready parts, here is how they differ.",
+      "Image to Layers — Canva Magic Layers separates elements inside Canva. For layered PSD export, named layers and rig-ready parts, here is how they differ.",
     h1: "Image to Layers: Canva Magic Layers vs a real layer export",
     eyebrow: "Comparison",
     intro: [

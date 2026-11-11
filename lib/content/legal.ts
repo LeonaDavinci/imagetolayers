@@ -6,7 +6,7 @@ export const legalPages: PageContent[] = [
     cluster: "legal",
     title: "Image to Layers — About the Product",
     description:
-      "Image to Layers — why we built layer separation around four workflows, e-commerce images, covers, Live2D characters and YouTube thumbnails, instead of a general-purpose editor.",
+      "Image to Layers — why layer separation is built around four workflows: e-commerce images, covers, Live2D characters and YouTube thumbnails, not a general editor.",
     h1: "Image to Layers: a layer tool built around four jobs",
     eyebrow: "About",
     intro: [

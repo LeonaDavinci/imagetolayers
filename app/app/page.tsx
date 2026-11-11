@@ -91,7 +91,14 @@ export default function StudioPage() {
                 return (
                   <div key={key} className="overflow-hidden rounded-lg border" style={{ borderColor: "var(--line)" }}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={asset.src} alt={asset.label} className="h-[72px] w-full object-cover" loading="lazy" />
+                    <img
+                      src={asset.src}
+                      alt={asset.label}
+                      width={asset.width}
+                      height={asset.height}
+                      className="h-[72px] w-full object-cover"
+                      loading="lazy"
+                    />
                     <p className="px-2 py-1 text-[10.5px] text-[#5b6879]">
                       {asset.level} · {asset.layers.length} layers
                     </p>

@@ -1,12 +1,11 @@
 export const site = {
   name: "Image to Layers",
-  domain: "image-layers.com",
-  url: "https://image-layers.com",
+  domain: "www.image-layers.com",
+  url: "https://www.image-layers.com",
   tagline: "Turn flat images into editable layers",
   description:
     "Image to Layers separates any flat image into editable, transparent layers with AI, rebuilds the background hidden behind each element, and exports PNG, ZIP or a layered PSD.",
   email: "hello@image-layers.com",
-  twitter: "@imagelayers",
   launchYear: 2026,
 };
 

@@ -6,7 +6,7 @@ export const coverPages: PageContent[] = [
     cluster: "cover",
     title: "Image to Layers — Book, Album and Poster Covers",
     description:
-      "Image to Layers — separate a finished cover into artwork, type, graphic marks and background layers so you can re-typeset, re-colour or re-format without the source file.",
+      "Image to Layers — separate a finished cover into artwork, type, graphic marks and background layers so you can re-typeset or reformat without the source file.",
     h1: "Image to Layers: finished covers, reopened for editing",
     eyebrow: "Covers · L2–L3",
     intro: [
@@ -111,7 +111,7 @@ export const coverPages: PageContent[] = [
     cluster: "cover",
     title: "Image to Layers — Re-Typeset a Finished Book Cover",
     description:
-      "Image to Layers — separate a book cover into artwork, title block, author line, imprint and background layers. Re-set the type for a new edition, translation or trim size.",
+      "Image to Layers — separate a book cover into artwork, title block, author line, imprint and background layers. Re-set the type for a new edition or trim size.",
     h1: "Image to Layers: re-typeset a book cover you no longer have the file for",
     eyebrow: "Book covers",
     intro: [
@@ -202,7 +202,7 @@ export const coverPages: PageContent[] = [
     cluster: "cover",
     title: "Image to Layers — Album Art, Type and Textures Apart",
     description:
-      "Image to Layers — split an album sleeve into artwork, title type, logos and texture layers so a reissue, deluxe edition or streaming variant keeps the original art direction.",
+      "Image to Layers — split an album sleeve into artwork, title type, logos and texture layers so a reissue or streaming variant keeps the original art direction.",
     h1: "Image to Layers: album artwork, ready for the next edition",
     eyebrow: "Album covers",
     intro: [
@@ -296,7 +296,7 @@ export const coverPages: PageContent[] = [
     cluster: "cover",
     title: "Image to Layers — Poster to Editable PSD",
     description:
-      "Image to Layers — convert a flattened poster, flyer or event graphic into a layered PSD: background, imagery, graphic rules and text regions, ready for the next date or venue.",
+      "Image to Layers — convert a flattened poster, flyer or event graphic into a layered PSD: background, imagery, graphic rules and text regions, ready for a new date.",
     h1: "Image to Layers: turn a flattened poster into an editable PSD",
     eyebrow: "Posters · flyers",
     intro: [
@@ -390,7 +390,7 @@ export const coverPages: PageContent[] = [
     cluster: "cover",
     title: "Image to Layers — Podcast Cover, Every Platform Size",
     description:
-      "Image to Layers — separate a podcast cover into portrait, type, logo and background layers so you can cut square, vertical and banner variants without redesigning the identity.",
+      "Image to Layers — separate a podcast cover into portrait, type, logo and background layers, then cut square, vertical and banner variants without redesigning.",
     h1: "Image to Layers: podcast artwork that survives every platform crop",
     eyebrow: "Podcast covers",
     intro: [

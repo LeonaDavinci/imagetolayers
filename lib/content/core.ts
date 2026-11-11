@@ -6,7 +6,7 @@ export const corePages: PageContent[] = [
     cluster: "core",
     title: "Image to Layers — Separate a Flat Image into Editable Layers",
     description:
-      "Image to Layers — upload a JPG, PNG or WebP and get editable layers back: subject, props, text regions and a rebuilt background. Pick L1–L4 and export PNG, ZIP or PSD.",
+      "Image to Layers — upload a JPG, PNG or WebP and get editable layers back: subject, props, text regions and a rebuilt background. Pick L1–L4, export PNG or PSD.",
     h1: "Image to Layers: turn one flat image into editable layers",
     eyebrow: "Image to layers",
     intro: [
@@ -136,7 +136,7 @@ export const corePages: PageContent[] = [
     cluster: "core",
     title: "Image to Layers — Image to PSD, Layered File Export",
     description:
-      "Image to Layers — convert a flat JPG, PNG or WebP into a layered PSD with named, ordered layers. No rebuild, no manual masking: open it in Photoshop and keep editing.",
+      "Image to Layers — convert a flat JPG, PNG or WebP into a layered PSD with named, ordered layers. No rebuild or manual masking: open it in Photoshop and edit.",
     h1: "Image to Layers: convert a flat image into a layered PSD",
     eyebrow: "Image to PSD",
     intro: [
@@ -245,7 +245,7 @@ export const corePages: PageContent[] = [
     cluster: "core",
     title: "Image to Layers — AI Layer Separator, Not Another Mask",
     description:
-      "Image to Layers — an AI layer separator that returns real layers, not masks. Split subjects, objects, text regions and backgrounds, keep depth order, export PNG, ZIP or PSD.",
+      "Image to Layers — an AI layer separator that returns real layers, not masks. Split subjects, objects, text regions and backgrounds, keep depth order, export PSD.",
     h1: "Image to Layers: an AI layer separator that returns layers, not masks",
     eyebrow: "Layer separator",
     intro: [
@@ -338,7 +338,7 @@ export const corePages: PageContent[] = [
     cluster: "core",
     title: "Image to Layers — Extract Editable Parts From One File",
     description:
-      "Image to Layers — extract editable parts from a flattened image: name the object you need, get it back with a rebuilt background, then export PNG, a ZIP stack or a layered PSD.",
+      "Image to Layers — extract editable parts from a flattened image: name the object you need, get it back with a rebuilt background, then export PNG, ZIP or PSD.",
     h1: "Image to Layers: extract the parts you need from a flattened image",
     eyebrow: "Extract layers",
     intro: [
@@ -526,7 +526,7 @@ export const corePages: PageContent[] = [
     cluster: "core",
     title: "Image to Layers — Four Worked Layer Stacks",
     description:
-      "Image to Layers — four real separations with the layer stack, the level used and the rebuilt background: skincare set, editorial cover, anime character, YouTube thumbnail.",
+      "Image to Layers — four real separations with the layer stack, the level used and the rebuilt background: skincare set, editorial cover, anime character, thumbnail.",
     h1: "Image to Layers: four images, four layer stacks",
     eyebrow: "Examples",
     intro: [

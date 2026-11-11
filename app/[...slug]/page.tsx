@@ -36,7 +36,7 @@ export async function generateMetadata({
     title: page.title,
     description: page.description,
     slug: page.slug,
-    image: demoAssets[page.demo].src,
+    image: demoAssets[page.demo].og,
   });
 }
 
@@ -140,31 +140,74 @@ function SectionBlock({ section, index }: { section: Section; index: number }) {
   );
 }
 
-function SampleStack({ demo }: { demo: PageContent["demo"] }) {
+function LayerStack({
+  demo,
+  className = "glass p-4",
+}: {
+  demo: PageContent["demo"];
+  className?: string;
+}) {
   const asset = demoAssets[demo];
+  return (
+    <div className={className}>
+      <div className="flex items-center justify-between">
+        <p className="text-[11.5px] uppercase tracking-[0.12em] text-[#6b7280]">Sample stack</p>
+        <span className="text-[10.5px] text-[#6b7280]">
+          {asset.level} · {asset.layers.length} layers
+        </span>
+      </div>
+      <ul className="mt-3 space-y-0.5">
+        {asset.layers.map((layer) => (
+          <li
+            key={layer.n}
+            className="flex items-center gap-2.5 rounded-[8px] px-1 py-1 text-[12px] text-[#3f4c60] transition hover:bg-white/80"
+          >
+            <span className="w-4 shrink-0 text-[10px] tabular-nums text-[#6b7280]">
+              {String(layer.n).padStart(2, "0")}
+            </span>
+            <span
+              className="relative h-12 w-12 shrink-0 overflow-hidden rounded-[7px] border bg-[#f6f7f9]"
+              style={{ borderColor: "var(--line)" }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`/layers/${demo}/${layer.n}.webp`}
+                alt={`${layer.name} extracted as its own transparent layer`}
+                width={48}
+                height={48}
+                loading="lazy"
+                className="h-full w-full object-cover"
+              />
+            </span>
+            <span className="min-w-0 flex-1">
+              <span className="block truncate text-[12.5px] font-medium leading-tight">{layer.name}</span>
+              <span className="mt-1 flex items-center gap-1.5 text-[10px] text-[#6b7280]">
+                <span className="shrink-0">{layer.kind}</span>
+                <span className="hidden shrink-0 text-[#c2cad4] sm:inline">·</span>
+                <span className="hidden truncate sm:inline">{layer.note ?? "Separated"}</span>
+              </span>
+            </span>
+            <span
+              className="ml-auto shrink-0 rounded-[4px] border px-1.5 py-0.5 text-[9.5px] tabular-nums text-[#6b7280]"
+              style={{ borderColor: "var(--line)" }}
+            >
+              z {String(layer.z).padStart(2, "0")}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-3 text-[11px] leading-relaxed text-[#6b7280]">
+        Depth order preserved. Reconstructed regions are estimates, not recovered pixels.
+      </p>
+    </div>
+  );
+}
+
+function SampleStack({ demo }: { demo: PageContent["demo"] }) {
   return (
     <div className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
       <LayerCanvas demo={demo} />
-      <div className="glass p-4">
-        <div className="flex items-center justify-between">
-          <p className="text-[11.5px] uppercase tracking-[0.12em] text-[#6b7280]">Sample stack</p>
-          <span className="text-[10.5px] text-[#6b7280]">{asset.level}</span>
-        </div>
-        <ul className="mt-3 space-y-1.5">
-          {asset.layers.map((layer) => (
-            <li key={layer.n} className="flex items-center gap-2.5 text-[12px] text-[#3f4c60]">
-              <span className="w-4 text-[10px] tabular-nums text-[#6b7280]">
-                {String(layer.n).padStart(2, "0")}
-              </span>
-              <span className="truncate">{layer.name}</span>
-              <span className="ml-auto shrink-0 text-[10px] text-[#6b7280]">{layer.kind}</span>
-            </li>
-          ))}
-        </ul>
-        <p className="mt-3 text-[11px] leading-relaxed text-[#6b7280]">
-          Depth order preserved. Reconstructed regions are estimates, not recovered pixels.
-        </p>
-      </div>
+      <LayerStack demo={demo} />
     </div>
   );
 }
@@ -251,23 +294,7 @@ export default async function ContentPage({ params }: { params: Promise<{ slug: 
           ) : !isLegal ? (
             <div className="mt-10 grid grid-cols-1 gap-4 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
               <LayerCanvas demo={page.demo} />
-              <div className="glass p-4">
-                <p className="text-[11.5px] uppercase tracking-[0.12em] text-[#6b7280]">Sample stack</p>
-                <ul className="mt-3 space-y-1.5">
-                  {asset.layers.map((layer) => (
-                    <li key={layer.n} className="flex items-center gap-2.5 text-[12px] text-[#3f4c60]">
-                      <span className="w-4 text-[10px] tabular-nums text-[#6b7280]">
-                        {String(layer.n).padStart(2, "0")}
-                      </span>
-                      <span className="truncate">{layer.name}</span>
-                      <span className="ml-auto text-[10px] text-[#6b7280]">{layer.kind}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-3 text-[11px] leading-relaxed text-[#6b7280]">
-                  Depth order preserved. Reconstructed regions are estimates, not recovered pixels.
-                </p>
-              </div>
+              <LayerStack demo={page.demo} />
             </div>
           ) : null}
         </div>

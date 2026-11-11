@@ -200,6 +200,8 @@ export function RelatedGrid({
               <img
                 src={asset.src}
                 alt={`${item.title} preview`}
+                width={asset.width}
+                height={asset.height}
                 loading="lazy"
                 className="h-[96px] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
               />

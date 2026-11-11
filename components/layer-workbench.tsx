@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { demoAssets, levelMeta } from "@/lib/content/layers";
 import type { DemoKey } from "@/lib/content/types";
@@ -181,6 +182,7 @@ export default function LayerWorkbench({ demo }: { demo: DemoKey }) {
                 src={upload.url}
                 alt={upload.name}
                 className="max-h-[286px] w-full bg-[#f6f7f9] object-contain"
+                style={{ aspectRatio: "4 / 3" }}
               />
               <button
                 type="button"
@@ -206,9 +208,9 @@ export default function LayerWorkbench({ demo }: { demo: DemoKey }) {
               <span className="text-[11.5px] font-medium uppercase tracking-[0.1em] text-[#6b7280]">
                 Layer level
               </span>
-              <a href="/layer-levels" className="text-[11.5px] text-[#1d4ed8] hover:underline">
+              <Link href="/layer-levels" className="text-[11.5px] text-[#1d4ed8] hover:underline">
                 What are levels?
-              </a>
+              </Link>
             </div>
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
               {(Object.keys(levelMeta) as LevelKey[]).map((key) => {
@@ -370,9 +372,9 @@ export default function LayerWorkbench({ demo }: { demo: DemoKey }) {
         <p className="text-[11px] text-[#6b7280]">
           Preview build · separation is simulated, sample layers are used
         </p>
-        <a href="/layer-levels" className="text-[11px] text-[#1d4ed8] hover:underline">
+        <Link href="/layer-levels" className="text-[11px] text-[#1d4ed8] hover:underline">
           Layer level guide →
-        </a>
+        </Link>
       </div>
 
       {toast ? (

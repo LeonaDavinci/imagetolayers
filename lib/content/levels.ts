@@ -6,7 +6,7 @@ export const levelPages: PageContent[] = [
     cluster: "level",
     title: "Image to Layers — Layer Levels L1 to L4 Explained",
     description:
-      "Image to Layers — four levels, four grouping targets: Core, Standard, Detailed and Character parts. Choose the level that matches your editing decisions, not the maximum.",
+      "Image to Layers — four levels, four grouping targets: Core, Standard, Detailed and Character parts. Choose the level that matches your editing, not the maximum.",
     h1: "Image to Layers: L1 to L4 layer levels, and how deep to split",
     eyebrow: "Levels · L1 to L4",
     intro: [

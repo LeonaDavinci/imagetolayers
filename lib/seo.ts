@@ -1,6 +1,19 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
 
+const OG_FALLBACK = "/brand/og.png";
+
+/** Social alt text: strip the brand prefix so we never emit "Brand — Brand — …". */
+function socialAlt(title: string) {
+  const brand = site.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const stripped = title
+    .replace(new RegExp(`^${brand}\\s*[:—–-]*\\s*`, "i"), "")
+    .trim();
+  return stripped && stripped.toLowerCase() !== site.name.toLowerCase()
+    ? `${site.name} — ${stripped}`
+    : site.name;
+}
+
 export function buildMetadata(opts: {
   title: string;
   description: string;
@@ -12,6 +25,8 @@ export function buildMetadata(opts: {
   const leadsWithKeyword = opts.title.toLowerCase().startsWith(site.name.toLowerCase());
   const branded = `${opts.title} | ${site.name}`;
   const titleValue = leadsWithKeyword || branded.length > 70 ? opts.title : branded;
+  // Every page must ship a 1200×630 card so social crawlers never crop a vertical demo image.
+  const image = opts.image ?? OG_FALLBACK;
   return {
     title: { absolute: titleValue },
     description: opts.description,
@@ -22,17 +37,13 @@ export function buildMetadata(opts: {
       url,
       siteName: site.name,
       type: "website",
-      images: [
-        opts.image
-          ? { url: opts.image, width: 1024, height: 968 }
-          : { url: "/brand/og.png", width: 1200, height: 630, alt: `${site.name} — ${opts.title}` },
-      ],
+      images: [{ url: image, width: 1200, height: 630, alt: socialAlt(opts.title) }],
     },
     twitter: {
       card: "summary_large_image",
       title: opts.title,
       description: opts.description,
-      images: [opts.image ?? "/brand/og.png"],
+      images: [{ url: image, alt: socialAlt(opts.title) }],
     },
   };
 }
@@ -46,7 +57,6 @@ export function organizationSchema() {
     logo: `${site.url}/brand/logo-mark-512.png`,
     description: site.description,
     email: site.email,
-    sameAs: [`https://twitter.com/${site.twitter.replace("@", "")}`],
   };
 }
 
@@ -56,11 +66,6 @@ export function websiteSchema() {
     "@type": "WebSite",
     name: site.name,
     url: site.url,
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${site.url}/search?q={query}`,
-      "query-input": "required name=query",
-    },
   };
 }
 

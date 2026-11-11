@@ -6,7 +6,7 @@ export const live2dPages: PageContent[] = [
     cluster: "live2d",
     title: "Image to Layers — Live2D Character, Rig-Ready Parts",
     description:
-      "Image to Layers — separate a character illustration into hair, face, eyes, clothing, limbs and accessories before rigging. Export transparent PNGs or a layered PSD for Cubism.",
+      "Image to Layers — separate a character illustration into hair, face, eyes, clothing, limbs and accessories for rigging. Export transparent PNGs or PSD for Cubism.",
     h1: "Image to Layers: prepare character art for Live2D",
     eyebrow: "Live2D · L4 parts",
     intro: [
@@ -121,7 +121,7 @@ export const live2dPages: PageContent[] = [
     cluster: "live2d",
     title: "Image to Layers — VTuber Model Prep Before Rigging",
     description:
-      "Image to Layers — turn a VTuber character sheet into separate hair, face, eye, clothing and accessory layers, so the model build starts at the mesh instead of the mask.",
+      "Image to Layers — turn a VTuber character sheet into separate hair, face, eye, clothing and accessory layers, so the model build starts at the mesh, not the mask.",
     h1: "Image to Layers: from character sheet to VTuber model parts",
     eyebrow: "VTubing · model prep",
     intro: [
@@ -217,7 +217,7 @@ export const live2dPages: PageContent[] = [
     cluster: "live2d",
     title: "Image to Layers — Spine Rigging, Bone-Ready Parts",
     description:
-      "Image to Layers — prepare character art for Spine by separating body parts, hair and accessories into named transparent layers with correct depth order, ready for bones and mesh.",
+      "Image to Layers — prepare character art for Spine by separating body parts, hair and accessories into named transparent layers with correct depth, ready for bones.",
     h1: "Image to Layers: prepare character art for Spine",
     eyebrow: "Spine · game animation",
     intro: [
@@ -313,7 +313,7 @@ export const live2dPages: PageContent[] = [
     cluster: "live2d",
     title: "Image to Layers — Anime Parts: Hair, Eyes, Clothing",
     description:
-      "Image to Layers — extract individual anime character parts, hair, eyes, mouth, clothing, horns, tails, from one illustration, with rebuilt areas behind overlapping parts.",
+      "Image to Layers — extract individual anime character parts, hair, eyes, mouth, clothing, horns and tails from one illustration, with rebuilt areas behind overlaps.",
     h1: "Image to Layers: extract individual anime character parts",
     eyebrow: "Anime · part extraction",
     intro: [

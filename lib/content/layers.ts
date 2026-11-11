@@ -14,6 +14,8 @@ export type DemoAsset = {
   key: DemoKey;
   label: string;
   src: string;
+  /** 1200×630 social card for this scene (never the raw demo image). */
+  og: string;
   width: number;
   height: number;
   size: string;
@@ -27,6 +29,7 @@ export const demoAssets: Record<DemoKey, DemoAsset> = {
     key: "ecommerce",
     label: "Skincare set",
     src: "/demo/ecommerce.webp",
+    og: "/brand/og-ecommerce.png",
     width: 1024,
     height: 968,
     size: "1024 × 968",
@@ -46,6 +49,7 @@ export const demoAssets: Record<DemoKey, DemoAsset> = {
     key: "cover",
     label: "Editorial cover",
     src: "/demo/cover.webp",
+    og: "/brand/og-cover.png",
     width: 1024,
     height: 1452,
     size: "1024 × 1452",
@@ -64,6 +68,7 @@ export const demoAssets: Record<DemoKey, DemoAsset> = {
     key: "live2d",
     label: "Rig-ready character",
     src: "/demo/live2d.webp",
+    og: "/brand/og-live2d.png",
     width: 657,
     height: 1336,
     size: "657 × 1336",
@@ -86,6 +91,7 @@ export const demoAssets: Record<DemoKey, DemoAsset> = {
     key: "youtube",
     label: "Thumbnail",
     src: "/demo/youtube.webp",
+    og: "/brand/og-youtube.png",
     width: 1536,
     height: 968,
     size: "1536 × 968",

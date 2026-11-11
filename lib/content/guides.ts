@@ -6,7 +6,7 @@ export const guidePages: PageContent[] = [
     cluster: "guide",
     title: "Image to Layers — How Many Layers Does an Image Need?",
     description:
-      "Image to Layers — count editing decisions, not objects: ranges by image type, what over-splitting looks like, and the two-pass workflow that beats asking for maximum detail.",
+      "Image to Layers — count editing decisions, not objects: ranges by image type, what over-splitting looks like, and a two-pass workflow that beats maximum detail.",
     h1: "Image to Layers: how many layers does an image actually need?",
     eyebrow: "Guide · layer count",
     intro: [

@@ -9,7 +9,7 @@ import { buildMetadata, faqSchema, softwareSchema } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Image to Layers — Turn Flat Images into Editable Layers",
   description:
-    "Image to Layers separates a flat image into editable, transparent layers — product photos, covers, Live2D characters, thumbnails — rebuilds what was hidden, exports PNG or PSD.",
+    "Image to Layers separates a flat image into editable, transparent layers — product photos, covers, Live2D characters, thumbnails — and exports PNG or layered PSD.",
 });
 
 const homeFaq = [
@@ -46,6 +46,7 @@ const homeFaq = [
 const pillars = [
   {
     slug: "/product-image-to-layers",
+    demo: "ecommerce",
     meta: "/demo/ecommerce.webp",
     level: "L2",
     title: "E-commerce product images",
@@ -54,6 +55,7 @@ const pillars = [
   },
   {
     slug: "/cover-to-layers",
+    demo: "cover",
     meta: "/demo/cover.webp",
     level: "L3",
     title: "Covers and posters",
@@ -62,6 +64,7 @@ const pillars = [
   },
   {
     slug: "/live2d-character-to-layers",
+    demo: "live2d",
     meta: "/demo/live2d.webp",
     level: "L4",
     title: "Live2D characters",
@@ -70,6 +73,7 @@ const pillars = [
   },
   {
     slug: "/youtube-thumbnail-to-layers",
+    demo: "youtube",
     meta: "/demo/youtube.webp",
     level: "L3",
     title: "YouTube thumbnails",
@@ -183,6 +187,8 @@ export default function HomePage() {
                     <img
                       src={pillar.meta}
                       alt={`${pillar.title} example`}
+                      width={demoAssets[pillar.demo as keyof typeof demoAssets].width}
+                      height={demoAssets[pillar.demo as keyof typeof demoAssets].height}
                       loading="lazy"
                       className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
                       style={{ objectPosition: pillar.pos }}

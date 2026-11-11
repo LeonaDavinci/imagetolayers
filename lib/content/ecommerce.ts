@@ -6,7 +6,7 @@ export const ecommercePages: PageContent[] = [
     cluster: "ecommerce",
     title: "Image to Layers — Product Photo, Editable Elements",
     description:
-      "Image to Layers — turn a flat product photo into editable layers: the product, its props, the surface, and a background rebuilt behind them. Made for marketplace main images.",
+      "Image to Layers — turn a flat product photo into editable layers: the product, its props, the surface, and a background rebuilt behind them. Built for main images.",
     h1: "Image to Layers: turn a product photo into editable layers",
     eyebrow: "E-commerce · L2 default",
     intro: [
@@ -219,7 +219,7 @@ export const ecommercePages: PageContent[] = [
     cluster: "ecommerce",
     title: "Image to Layers — Shopify Product Photos, Reusable Assets",
     description:
-      "Image to Layers — separate Shopify product photos into product, props and background layers so theme changes, collection banners and ad variants reuse the same photography.",
+      "Image to Layers — separate Shopify product photos into product, props and background layers so theme changes, collection banners and ad variants reuse one shoot.",
     h1: "Image to Layers: Shopify product photos that survive a theme change",
     eyebrow: "Shopify · catalogue",
     intro: [
@@ -315,7 +315,7 @@ export const ecommercePages: PageContent[] = [
     cluster: "ecommerce",
     title: "Image to Layers — Bundles With Overlapping Products",
     description:
-      "Image to Layers — split a bundle or gift-set photo into individual products, packaging and backdrop layers so you can recombine or rebuild the set for a new campaign.",
+      "Image to Layers — split a bundle or gift-set photo into individual products, packaging and backdrop layers so you can recombine the set for a new campaign.",
     h1: "Image to Layers: separate a bundle photo into individual products",
     eyebrow: "Bundles · overlapping objects",
     intro: [
