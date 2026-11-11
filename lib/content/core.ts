@@ -6,12 +6,12 @@ export const corePages: PageContent[] = [
     cluster: "core",
     title: "Image to Layers — Separate a Flat Image into Editable Layers",
     description:
-      "Upload a JPG, PNG or WebP and get editable layers back: subject, props, text regions and a background rebuilt behind them. Pick L1–L4 depth and export PNG, ZIP or PSD.",
-    h1: "Turn one flat image into editable layers",
+      "Image to Layers — upload a JPG, PNG or WebP and get editable layers back: subject, props, text regions and a rebuilt background. Pick L1–L4 and export PNG, ZIP or PSD.",
+    h1: "Image to Layers: turn one flat image into editable layers",
     eyebrow: "Image to layers",
     intro: [
       "A finished image is a dead end. Everything you might want to move, resize, restyle or delete is fused into one rectangle of pixels, and the file you were handed has no memory of how it was built.",
-      "Image Layers puts that structure back. Upload a flat JPG, PNG or WebP and the model separates the visible elements into independent layers — then estimates what was hidden behind each one, so the background you get back is complete rather than full of holes.",
+      "Image to Layers puts that structure back. Upload a flat JPG, PNG or WebP and the model separates the visible elements into independent layers — then estimates what was hidden behind each one, so the background you get back is complete rather than full of holes.",
     ],
     demo: "ecommerce",
     tool: true,
@@ -37,7 +37,7 @@ export const corePages: PageContent[] = [
         lead: "The most common mistake is asking for more layers than the image can support.",
         body: [
           "Every image has a natural number of independently editable groups. A logo has two or three. A studio product shot usually has five or six. A crowded thumbnail can carry eight before the model starts inventing duplicates.",
-          "Image Layers exposes that choice directly as four levels, from **L1 Core** (2–4 layers) up to **L4 Character parts** (hair, face, eyes, clothing, limbs). Each level is a different target rather than a different slider, and the credit cost scales with the work involved.",
+          "Image to Layers exposes that choice directly as four levels, from **L1 Core** (2–4 layers) up to **L4 Character parts** (hair, face, eyes, clothing, limbs). Each level is a different target rather than a different slider, and the credit cost scales with the work involved.",
         ],
         bullets: [
           { title: "L1 Core · 2–4 layers", text: "Subject, background, and the one element you actually need to move. Fastest, cheapest, hardest to get wrong." },
@@ -134,10 +134,10 @@ export const corePages: PageContent[] = [
   {
     slug: "image-to-psd",
     cluster: "core",
-    title: "Image to PSD — Convert a JPG or PNG into a Layered File",
+    title: "Image to Layers — Image to PSD, Layered File Export",
     description:
-      "Convert a flat JPG, PNG or WebP into a layered PSD with named, ordered image layers. No rebuild from scratch, no manual masking — open it in Photoshop and keep editing.",
-    h1: "Convert a flat image into a layered PSD",
+      "Image to Layers — convert a flat JPG, PNG or WebP into a layered PSD with named, ordered layers. No rebuild, no manual masking: open it in Photoshop and keep editing.",
+    h1: "Image to Layers: convert a flat image into a layered PSD",
     eyebrow: "Image to PSD",
     intro: [
       "Changing the file extension does not make an image editable. A PSD with one layer is just a JPEG wearing a Photoshop badge — which is exactly what most online converters hand you.",
@@ -243,10 +243,10 @@ export const corePages: PageContent[] = [
   {
     slug: "image-layer-separator",
     cluster: "core",
-    title: "AI Image Layer Separator — Split Any Image into Separate Layers",
+    title: "Image to Layers — AI Layer Separator, Not Another Mask",
     description:
-      "An AI layer separator that returns real layers, not masks. Split subjects, objects, text regions and backgrounds, keep depth order, and export PNG, ZIP or PSD.",
-    h1: "An AI layer separator that returns layers, not masks",
+      "Image to Layers — an AI layer separator that returns real layers, not masks. Split subjects, objects, text regions and backgrounds, keep depth order, export PNG, ZIP or PSD.",
+    h1: "Image to Layers: an AI layer separator that returns layers, not masks",
     eyebrow: "Layer separator",
     intro: [
       "Most tools that call themselves layer separators return masks. A mask tells you where an object is; a layer gives you the object on its own, in the right stacking order, with the space behind it filled in.",
@@ -336,10 +336,10 @@ export const corePages: PageContent[] = [
   {
     slug: "extract-layers-from-image",
     cluster: "core",
-    title: "Extract Layers From an Image — Editable Parts, One File",
+    title: "Image to Layers — Extract Editable Parts From One File",
     description:
-      "Extract editable parts from a flattened image: name the object you need, get it back with a rebuilt background, then export a transparent PNG, a ZIP stack or a layered PSD.",
-    h1: "Extract the parts you need from a flattened image",
+      "Image to Layers — extract editable parts from a flattened image: name the object you need, get it back with a rebuilt background, then export PNG, a ZIP stack or a layered PSD.",
+    h1: "Image to Layers: extract the parts you need from a flattened image",
     eyebrow: "Extract layers",
     intro: [
       "Sometimes you do not want the whole decomposition. You want the bottle. Or the logo. Or the one prop that took a retoucher three hours and is now trapped inside a flattened export.",
@@ -426,10 +426,10 @@ export const corePages: PageContent[] = [
   {
     slug: "how-it-works",
     cluster: "core",
-    title: "How AI Image Layer Separation Works — And Where It Stops",
+    title: "Image to Layers — How Layer Separation Actually Works",
     description:
-      "A plain explanation of semantic layer decomposition: how elements are detected, how hidden areas are reconstructed, what L1–L4 means, and which limits are physics rather than bugs.",
-    h1: "How layer separation works, and where it stops",
+      "Image to Layers — how elements are detected, how hidden areas are reconstructed, what L1–L4 means, and which limits are physics rather than bugs.",
+    h1: "Image to Layers: how layer separation works, and where it stops",
     eyebrow: "How it works",
     intro: [
       "Layer separation is not a filter. It is a reconstruction problem: the model has to decide what the image is made of, then invent the parts the camera could not see.",
@@ -524,10 +524,10 @@ export const corePages: PageContent[] = [
   {
     slug: "showcase",
     cluster: "core",
-    title: "Layer Separation Examples — Product, Cover, Character, Thumbnail",
+    title: "Image to Layers — Four Worked Layer Stacks",
     description:
-      "Four real separation examples with the layer stack, the level used and what the reconstructed background looks like: skincare set, editorial cover, anime character, YouTube thumbnail.",
-    h1: "Four images, four layer stacks",
+      "Image to Layers — four real separations with the layer stack, the level used and the rebuilt background: skincare set, editorial cover, anime character, YouTube thumbnail.",
+    h1: "Image to Layers: four images, four layer stacks",
     eyebrow: "Examples",
     intro: [
       "Every example below was separated at the level shown, and each one fails in a different place — which is more useful than a gallery of best cases.",

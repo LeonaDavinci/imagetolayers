@@ -4,10 +4,10 @@ export const levelPages: PageContent[] = [
   {
     slug: "layer-levels",
     cluster: "level",
-    title: "Layer Levels — How Deep Should an Image Be Split?",
+    title: "Image to Layers — Layer Levels L1 to L4 Explained",
     description:
-      "Four levels, four different grouping targets: Core, Standard, Detailed and Character parts. Choose the level that matches your editing decisions, not the maximum available.",
-    h1: "Layer levels: how deep should the split go?",
+      "Image to Layers — four levels, four grouping targets: Core, Standard, Detailed and Character parts. Choose the level that matches your editing decisions, not the maximum.",
+    h1: "Image to Layers: L1 to L4 layer levels, and how deep to split",
     eyebrow: "Levels · L1 to L4",
     intro: [
       "More layers are not better layers. Past the number of genuine editing decisions in an image, extra layers fill up with duplicates, fragments and background residue that nobody wants to edit.",
@@ -99,10 +99,10 @@ export const levelPages: PageContent[] = [
   {
     slug: "layer-levels/core",
     cluster: "level",
-    title: "L1 Core Level — 2 to 4 Layers for Fast Reuse",
+    title: "Image to Layers — L1 Core: 2 to 4 Layers, Fast Reuse",
     description:
-      "Core separation returns two to four layers: the subject, a reconstructed background, and at most one extra group. The cheapest, most predictable level.",
-    h1: "L1 Core: two to four layers",
+      "Image to Layers — L1 Core returns two to four layers: the subject, a reconstructed background, and at most one extra group. The cheapest, most predictable level.",
+    h1: "Image to Layers: L1 Core, two to four layers",
     eyebrow: "Level L1 · 30 credits",
     intro: [
       "Core is the level for people who already know what they want to change. It returns the minimum viable structure: the subject on transparency, a background rebuilt behind it, and one extra group only if the image genuinely has one.",
@@ -180,10 +180,10 @@ export const levelPages: PageContent[] = [
   {
     slug: "layer-levels/standard",
     cluster: "level",
-    title: "L2 Standard Level — 4 to 6 Layers for Product and Cover Work",
+    title: "Image to Layers — L2 Standard: 4 to 6 Layers",
     description:
-      "Standard separation returns four to six layers: hero subject, supporting props, surface and shadow group, and a reconstructed backdrop. The default for commercial scenes.",
-    h1: "L2 Standard: four to six layers",
+      "Image to Layers — L2 Standard returns four to six layers: hero subject, props, surface and shadow group, and a rebuilt backdrop. The default for commercial scenes.",
+    h1: "Image to Layers: L2 Standard, four to six layers",
     eyebrow: "Level L2 · 45 credits",
     intro: [
       "Standard is the working default. It matches the anatomy of a commercial photograph — one hero object, a few props, a surface, a backdrop — and stops there.",
@@ -262,10 +262,10 @@ export const levelPages: PageContent[] = [
   {
     slug: "layer-levels/detailed",
     cluster: "level",
-    title: "L3 Detailed Level — 6 to 9 Layers Including Text and Graphics",
+    title: "Image to Layers — L3 Detailed: 6 to 9 Layers",
     description:
-      "Detailed separation isolates text regions, graphic devices and depth groups on top of the scene structure. Built for thumbnails, posters and ad creative.",
-    h1: "L3 Detailed: six to nine layers",
+      "Image to Layers — L3 Detailed isolates text regions, graphic devices and depth groups on top of the scene structure. Built for thumbnails, posters and ad creative.",
+    h1: "Image to Layers: L3 Detailed, six to nine layers",
     eyebrow: "Level L3 · 60 credits",
     intro: [
       "Detailed is the level for layouts rather than photographs. It separates the scene and then goes further, isolating the type blocks and graphic devices that a redesign actually needs to touch.",
@@ -344,10 +344,10 @@ export const levelPages: PageContent[] = [
   {
     slug: "layer-levels/character-parts",
     cluster: "level",
-    title: "L4 Character Parts Level — Anatomy-Level Separation for Rigging",
+    title: "Image to Layers — L4 Character Parts for Rigging",
     description:
-      "Character parts separation targets anatomy: hair sections, face, eyes, mouth, clothing, limbs and accessories, with reconstructed areas behind overlaps.",
-    h1: "L4 Character parts: anatomy as the unit",
+      "Image to Layers — L4 Character parts targets anatomy: hair sections, face, eyes, mouth, clothing, limbs and accessories, with rebuilt areas behind overlaps.",
+    h1: "Image to Layers: L4 Character parts, anatomy as the unit",
     eyebrow: "Level L4 · 90 credits",
     intro: [
       "Character parts is the only level that deliberately returns more layers than the image's natural group count, because a rig does not want objects — it wants deformable parts.",

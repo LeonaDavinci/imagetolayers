@@ -7,14 +7,14 @@ import { demoAssets, levelMeta } from "@/lib/content/layers";
 import { buildMetadata, faqSchema, softwareSchema } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Turn flat images into editable layers",
+  title: "Image to Layers — Turn Flat Images into Editable Layers",
   description:
-    "AI layer separation for product images, covers, Live2D characters and YouTube thumbnails. Reconstruct hidden background, pick a layer level, export PNG, ZIP or PSD.",
+    "Image to Layers separates a flat image into editable, transparent layers — product photos, covers, Live2D characters, thumbnails — rebuilds what was hidden, exports PNG or PSD.",
 });
 
 const homeFaq = [
   {
-    q: "What does Image Layers actually do?",
+    q: "What does Image to Layers actually do?",
     a: "It separates a flat image into editable layers — subject, props, text regions, graphics and a reconstructed background — then exports them as transparent PNGs, a ZIP stack or a layered PSD.",
   },
   {
@@ -74,7 +74,7 @@ const pillars = [
     level: "L3",
     title: "YouTube thumbnails",
     body: "Keep the face that performs, swap the headline, test one variable.",
-    pos: "100% 45%",
+    pos: "55% 45%",
   },
 ];
 
@@ -116,7 +116,7 @@ export default function HomePage() {
       <JsonLd
         data={[
           softwareSchema({
-            name: "Image Layers",
+            name: "Image to Layers",
             description:
               "AI layer separation for product images, covers, Live2D characters and YouTube thumbnails.",
             slug: "",
@@ -133,8 +133,13 @@ export default function HomePage() {
               <span className="chip-dot" />
               Preview build · separation is simulated
             </span>
-            <h1 className="mt-5 text-[31px] font-semibold leading-[1.08] tracking-[-0.032em] sm:text-[46px]">
-              Turn a flat image into <span className="grad-text">editable layers</span>
+            <h1 className="mt-5 tracking-[-0.032em]">
+              <span className="block text-[31px] font-semibold leading-[1.06] text-[#101828] sm:text-[44px]">
+                Image to Layers
+              </span>
+              <span className="mt-1.5 block text-[20px] font-normal leading-[1.28] text-[#46536a] sm:mt-2 sm:text-[29px]">
+                Turn a flat image into editable, transparent layers
+              </span>
             </h1>
             <p className="mx-auto mt-4 max-w-[640px] text-[15.5px] leading-[1.7] text-[#46536a] sm:text-[16.5px]">
               Separate the subject, props, text and background — then rebuild what was hidden
@@ -171,7 +176,7 @@ export default function HomePage() {
                   style={{ borderColor: "var(--line)" }}
                 >
                   <div
-                    className="relative h-[104px] w-[104px] shrink-0 overflow-hidden border-r sm:h-[124px] sm:w-full sm:border-b sm:border-r-0"
+                    className="relative aspect-[4/3] w-[132px] shrink-0 overflow-hidden border-r sm:aspect-[4/3] sm:w-full sm:border-b sm:border-r-0"
                     style={{ borderColor: "var(--line)" }}
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}

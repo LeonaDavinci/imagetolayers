@@ -7,9 +7,9 @@ import { buildMetadata, faqSchema } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Pricing — Credits for Layer Separation",
+  title: "Image to Layers — Pricing and Credits",
   description:
-    "Simple credit pricing for AI layer separation: 20 free credits, Creator at $10/month with 12,000 credits a year, Studio at $30/month with API access and team seats.",
+    "Image to Layers pricing in credits: 20 free to start, Creator at $10/month with 12,000 credits a year, Studio at $30/month with API access and team seats.",
   slug: "pricing",
 });
 
@@ -105,7 +105,7 @@ export default function PricingPage() {
           {
             "@context": "https://schema.org",
             "@type": "Product",
-            name: "Image Layers",
+            name: "Image to Layers",
             description: "AI image layer separation with layered PSD export.",
             brand: { "@type": "Brand", name: site.name },
             offers: plans.map((plan) => ({
@@ -128,7 +128,7 @@ export default function PricingPage() {
             Credits, not seats
           </span>
           <h1 className="mt-5 text-[30px] font-semibold leading-[1.1] tracking-[-0.03em] sm:text-[40px]">
-            Pay per layer depth, not per user
+            Image to Layers: pay per layer depth, not per user
           </h1>
           <p className="mx-auto mt-4 max-w-[620px] text-[15px] leading-relaxed text-[#46536a]">
             One credit balance covers every workflow. A product photo at L2 and a character at L4 draw

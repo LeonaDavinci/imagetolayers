@@ -4,10 +4,10 @@ export const live2dPages: PageContent[] = [
   {
     slug: "live2d-character-to-layers",
     cluster: "live2d",
-    title: "Live2D Character Layers — Separate Character Art into Rig-Ready Parts",
+    title: "Image to Layers — Live2D Character, Rig-Ready Parts",
     description:
-      "Separate a character illustration into hair, face, eyes, clothing, limbs and accessories before rigging. Export transparent PNGs or a layered PSD for Live2D Cubism.",
-    h1: "Prepare character art for Live2D",
+      "Image to Layers — separate a character illustration into hair, face, eyes, clothing, limbs and accessories before rigging. Export transparent PNGs or a layered PSD for Cubism.",
+    h1: "Image to Layers: prepare character art for Live2D",
     eyebrow: "Live2D · L4 parts",
     intro: [
       "Rigging starts before Cubism opens. If the character arrives as one flat illustration, the first day of work is not rigging — it is masking hair out of a face and guessing what the shoulder looked like under the collar.",
@@ -119,10 +119,10 @@ export const live2dPages: PageContent[] = [
   {
     slug: "live2d-character-to-layers/vtuber",
     cluster: "live2d",
-    title: "VTuber Model Prep — Separate a Character Design into Rig-Ready Parts",
+    title: "Image to Layers — VTuber Model Prep Before Rigging",
     description:
-      "Turn a VTuber character sheet into separate hair, face, eye, clothing and accessory layers before rigging, so the model build starts at the mesh instead of the mask.",
-    h1: "From character sheet to VTuber model parts",
+      "Image to Layers — turn a VTuber character sheet into separate hair, face, eye, clothing and accessory layers, so the model build starts at the mesh instead of the mask.",
+    h1: "Image to Layers: from character sheet to VTuber model parts",
     eyebrow: "VTubing · model prep",
     intro: [
       "A VTuber model is a commission pipeline: art, separation, rigging, then endless iteration once the talent starts performing. Separation sits in the middle and quietly determines how painful everything after it is.",
@@ -215,10 +215,10 @@ export const live2dPages: PageContent[] = [
   {
     slug: "live2d-character-to-layers/spine",
     cluster: "live2d",
-    title: "Spine Rigging Prep — Separate Character Art into Bone-Ready Parts",
+    title: "Image to Layers — Spine Rigging, Bone-Ready Parts",
     description:
-      "Prepare character art for Spine by separating body parts, hair and accessories into named transparent layers with correct depth order, ready for mesh and bone setup.",
-    h1: "Prepare character art for Spine",
+      "Image to Layers — prepare character art for Spine by separating body parts, hair and accessories into named transparent layers with correct depth order, ready for bones and mesh.",
+    h1: "Image to Layers: prepare character art for Spine",
     eyebrow: "Spine · game animation",
     intro: [
       "Spine rigs want fewer, larger parts than a Live2D face rig — a whole arm is usually one attachment, not five. That changes the target: separation should respect the bone hierarchy the animator will build, not the finest detail the artwork allows.",
@@ -311,10 +311,10 @@ export const live2dPages: PageContent[] = [
   {
     slug: "live2d-character-to-layers/anime-character-parts",
     cluster: "live2d",
-    title: "Anime Character Parts Extractor — Hair, Eyes, Clothing and Accessories",
+    title: "Image to Layers — Anime Parts: Hair, Eyes, Clothing",
     description:
-      "Extract individual anime character parts — hair, eyes, mouth, clothing, horns, tails — from a single illustration, with reconstructed areas behind overlapping parts.",
-    h1: "Extract individual anime character parts",
+      "Image to Layers — extract individual anime character parts, hair, eyes, mouth, clothing, horns, tails, from one illustration, with rebuilt areas behind overlapping parts.",
+    h1: "Image to Layers: extract individual anime character parts",
     eyebrow: "Anime · part extraction",
     intro: [
       "Anime illustration is drawn in flat planes with clean boundaries, which makes it the friendliest possible input for part extraction — and the most demanding about grouping, because a single misplaced boundary ruins a rig.",

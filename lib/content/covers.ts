@@ -4,10 +4,10 @@ export const coverPages: PageContent[] = [
   {
     slug: "cover-to-layers",
     cluster: "cover",
-    title: "Cover to Layers — Book, Album and Poster Art, Editable",
+    title: "Image to Layers — Book, Album and Poster Covers",
     description:
-      "Separate a finished cover into artwork, type, graphic marks and background layers so you can re-typeset, re-colour or re-format without the original layout file.",
-    h1: "Finished covers, reopened for editing",
+      "Image to Layers — separate a finished cover into artwork, type, graphic marks and background layers so you can re-typeset, re-colour or re-format without the source file.",
+    h1: "Image to Layers: finished covers, reopened for editing",
     eyebrow: "Covers · L2–L3",
     intro: [
       "Covers outlive their source files. The designer leaves, the layered file is lost in a migration, and what remains is a flattened export at whatever size the last printer asked for.",
@@ -109,10 +109,10 @@ export const coverPages: PageContent[] = [
   {
     slug: "cover-to-layers/book-cover",
     cluster: "cover",
-    title: "Book Cover to Layers — Re-Typeset a Finished Cover Without the Source File",
+    title: "Image to Layers — Re-Typeset a Finished Book Cover",
     description:
-      "Separate a finished book cover into artwork, title block, author line, imprint and background layers. Re-set the type for a new edition, translation or trim size.",
-    h1: "Re-typeset a book cover you no longer have the file for",
+      "Image to Layers — separate a book cover into artwork, title block, author line, imprint and background layers. Re-set the type for a new edition, translation or trim size.",
+    h1: "Image to Layers: re-typeset a book cover you no longer have the file for",
     eyebrow: "Book covers",
     intro: [
       "Publishers reissue constantly, and the layered file from the first edition is usually gone. What survives is a print PDF someone flattened, or a JPEG on a backlist drive.",
@@ -200,10 +200,10 @@ export const coverPages: PageContent[] = [
   {
     slug: "cover-to-layers/album-cover",
     cluster: "cover",
-    title: "Album Cover to Layers — Separate Artwork, Type and Textures for a Reissue",
+    title: "Image to Layers — Album Art, Type and Textures Apart",
     description:
-      "Split an album sleeve into artwork, title type, logos and texture layers so a reissue, deluxe edition or streaming variant keeps the original art direction.",
-    h1: "Album artwork, ready for the next edition",
+      "Image to Layers — split an album sleeve into artwork, title type, logos and texture layers so a reissue, deluxe edition or streaming variant keeps the original art direction.",
+    h1: "Image to Layers: album artwork, ready for the next edition",
     eyebrow: "Album covers",
     intro: [
       "Album art is commissioned once and reused for decades: reissues, deluxe editions, anniversary pressings, streaming canvases, merchandise. Each format wants a different crop of the same artwork.",
@@ -294,10 +294,10 @@ export const coverPages: PageContent[] = [
   {
     slug: "cover-to-layers/poster-to-editable-psd",
     cluster: "cover",
-    title: "Poster to Editable PSD — Rebuild a Flattened Poster as a Layered File",
+    title: "Image to Layers — Poster to Editable PSD",
     description:
-      "Convert a flattened poster, flyer or event graphic into a layered PSD: background, imagery, graphic rules and text regions, ready to re-edit for the next date or venue.",
-    h1: "Turn a flattened poster into an editable PSD",
+      "Image to Layers — convert a flattened poster, flyer or event graphic into a layered PSD: background, imagery, graphic rules and text regions, ready for the next date or venue.",
+    h1: "Image to Layers: turn a flattened poster into an editable PSD",
     eyebrow: "Posters · flyers",
     intro: [
       "Event posters go stale fast. The date changes, the lineup changes, the venue changes — and the file that would make those edits trivial is long gone.",
@@ -388,10 +388,10 @@ export const coverPages: PageContent[] = [
   {
     slug: "cover-to-layers/podcast-cover",
     cluster: "cover",
-    title: "Podcast Cover to Layers — Rebuild Artwork for Every Platform Size",
+    title: "Image to Layers — Podcast Cover, Every Platform Size",
     description:
-      "Separate a podcast cover into portrait, type, logo and background layers so you can produce square, vertical and banner variants without redesigning the show identity.",
-    h1: "Podcast artwork that survives every platform crop",
+      "Image to Layers — separate a podcast cover into portrait, type, logo and background layers so you can cut square, vertical and banner variants without redesigning the identity.",
+    h1: "Image to Layers: podcast artwork that survives every platform crop",
     eyebrow: "Podcast covers",
     intro: [
       "A podcast cover gets cropped by every platform that shows it: square in Apple Podcasts and Spotify, vertical in some video feeds, wide in YouTube banners and newsletter headers.",

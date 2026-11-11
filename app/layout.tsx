@@ -9,8 +9,8 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Image Layers — Turn flat images into editable layers",
-    template: "%s | Image Layers",
+    default: "Image to Layers — Turn Flat Images into Editable Layers",
+    template: "%s | Image to Layers",
   },
   description: site.description,
   applicationName: site.name,
@@ -30,14 +30,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    title: "Image Layers — Turn flat images into editable layers",
+    title: "Image to Layers — Turn Flat Images into Editable Layers",
     description: site.description,
     url: site.url,
-    images: [{ url: "/brand/og.png", width: 1200, height: 630, alt: "Image Layers — turn flat images into editable layers" }],
+    images: [{ url: "/brand/og.png", width: 1200, height: 630, alt: "Image to Layers — turn flat images into editable layers" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Image Layers — Turn flat images into editable layers",
+    title: "Image to Layers — Turn Flat Images into Editable Layers",
     description: site.description,
     images: ["/brand/og.png"],
   },

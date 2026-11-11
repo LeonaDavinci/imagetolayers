@@ -4,10 +4,10 @@ export const comparePages: PageContent[] = [
   {
     slug: "compare/remove-bg-vs-image-to-layers",
     cluster: "compare",
-    title: "Background Removal vs Editable Layers — Which Output Do You Need?",
+    title: "Image to Layers — vs Background Removal: Which Output",
     description:
-      "A transparent PNG and a layer stack solve different problems. Compare what each produces, what each costs, and how to tell which one your job actually requires.",
-    h1: "Background removal or editable layers?",
+      "Image to Layers — a transparent PNG and a layer stack solve different problems. Compare what each produces, what each costs, and which one your job actually needs.",
+    h1: "Image to Layers: background removal or editable layers?",
     eyebrow: "Comparison",
     intro: [
       "They look similar in a marketing screenshot and behave nothing alike in production. One gives you a subject on transparency and discards the scene; the other reconstructs the scene so the subject can move.",
@@ -99,10 +99,10 @@ export const comparePages: PageContent[] = [
   {
     slug: "compare/canva-magic-layers-alternative",
     cluster: "compare",
-    title: "Canva Magic Layers Alternative — When You Need a Real Exportable Stack",
+    title: "Image to Layers — Canva Magic Layers Alternative",
     description:
-      "Magic Layers separates elements inside Canva. If you need layered PSD export, named layers, depth order and rig-ready parts, here is how the two approaches differ.",
-    h1: "Canva Magic Layers vs a real layer export",
+      "Image to Layers — Magic Layers separates elements inside Canva. If you need layered PSD export, named layers, depth order and rig-ready parts, here is how they differ.",
+    h1: "Image to Layers: Canva Magic Layers vs a real layer export",
     eyebrow: "Comparison",
     intro: [
       "Canva's Magic Layers is genuinely useful inside Canva: it turns a flat image into movable elements you can rearrange on a design. It is not a layer export tool, and the difference shows up the moment the file leaves the editor.",
@@ -118,7 +118,7 @@ export const comparePages: PageContent[] = [
           "Layer separation exists to produce a file. The output is PNGs, a ZIP and a layered PSD that opens in Photoshop, Affinity, Cubism or Spine.",
         ],
         table: {
-          head: ["", "Magic Layers", "Image Layers"],
+          head: ["", "Magic Layers", "Image to Layers"],
           rows: [
             ["Output", "Elements inside a Canva design", "PNG, ZIP, layered PSD"],
             ["Layer names", "Generic", "Semantic, preserved"],

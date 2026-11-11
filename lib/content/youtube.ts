@@ -4,10 +4,10 @@ export const youtubePages: PageContent[] = [
   {
     slug: "youtube-thumbnail-to-layers",
     cluster: "youtube",
-    title: "YouTube Thumbnail to Layers — Separate Subject, Text and Graphics",
+    title: "Image to Layers — YouTube Thumbnail, Subject and Text Apart",
     description:
-      "Separate a finished YouTube thumbnail into presenter, text regions, arrows, stickers and background layers. Redesign, A/B test or re-title without rebuilding the artwork.",
-    h1: "Turn a finished thumbnail into editable layers",
+      "Image to Layers — separate a finished YouTube thumbnail into presenter, text regions, arrows, stickers and background layers. Redesign or re-title without rebuilding the artwork.",
+    h1: "Image to Layers: turn a finished thumbnail into editable layers",
     eyebrow: "YouTube · L3 default",
     intro: [
       "A thumbnail is the highest-leverage image a creator makes and the least editable. Once it is exported, the face, the headline, the arrow and the background are one flat file.",
@@ -120,10 +120,10 @@ export const youtubePages: PageContent[] = [
   {
     slug: "youtube-thumbnail-to-layers/change-thumbnail-text",
     cluster: "youtube",
-    title: "Change the Text on a YouTube Thumbnail Without the Original File",
+    title: "Image to Layers — Change Thumbnail Text, No Source File",
     description:
-      "Remove the old headline from a finished thumbnail, keep the presenter and background, and set new copy in the same space. No source file, no reshoot.",
-    h1: "Change the words on a finished thumbnail",
+      "Image to Layers — remove the old headline from a finished thumbnail, keep the presenter and background, and set new copy in the same space. No source file, no reshoot.",
+    h1: "Image to Layers: change the words on a finished thumbnail",
     eyebrow: "Thumbnails · text replacement",
     intro: [
       "The video is fine. The title is fine. The thumbnail has the wrong number in it, or the old episode name, or a claim marketing no longer wants to make.",
@@ -218,10 +218,10 @@ export const youtubePages: PageContent[] = [
   {
     slug: "youtube-thumbnail-to-layers/1280x720-thumbnail",
     cluster: "youtube",
-    title: "1280×720 Thumbnail Layers — Rebuild at the Correct Size and File Limit",
+    title: "Image to Layers — 1280×720 Thumbnails at Native Size",
     description:
-      "Separate a thumbnail at native 1280×720, re-compose it, and export under YouTube's 2 MB limit without losing the detail that makes it readable at small sizes.",
-    h1: "Thumbnails at 1280×720, without the guesswork",
+      "Image to Layers — separate a thumbnail at native 1280×720, re-compose it, and export under YouTube's 2 MB limit without losing the detail that reads at small sizes.",
+    h1: "Image to Layers: thumbnails at 1280×720, without the guesswork",
     eyebrow: "Thumbnails · specs",
     intro: [
       "YouTube's thumbnail spec is narrow: 1280×720, 16:9, under 2 MB, JPG or PNG. Most thumbnail problems are not creative — they are a design that was never checked at the sizes the platform actually uses.",
@@ -312,10 +312,10 @@ export const youtubePages: PageContent[] = [
   {
     slug: "youtube-thumbnail-to-layers/thumbnail-a-b-test",
     cluster: "youtube",
-    title: "Thumbnail A/B Testing — Build Variants From One Layer Stack",
+    title: "Image to Layers — Thumbnail A/B Tests From One Stack",
     description:
-      "Test thumbnail variants that differ in one variable at a time. Separate the stack once, change the headline or the subject, and run a clean comparison.",
-    h1: "Thumbnail tests that isolate one variable",
+      "Image to Layers — test thumbnail variants that differ in one variable at a time. Separate the stack once, change the headline or the subject, and run a clean comparison.",
+    h1: "Image to Layers: thumbnail tests that isolate one variable",
     eyebrow: "Thumbnails · testing",
     intro: [
       "Most thumbnail tests are invalid before they start: a new face, a new headline, a new colour and a new crop all at once. When the result comes in, nobody knows what caused it.",

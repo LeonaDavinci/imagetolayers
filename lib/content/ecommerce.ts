@@ -4,10 +4,10 @@ export const ecommercePages: PageContent[] = [
   {
     slug: "product-image-to-layers",
     cluster: "ecommerce",
-    title: "Product Image to Layers — Editable Elements, No Reshoot",
+    title: "Image to Layers — Product Photo, Editable Elements",
     description:
-      "Turn a flat product photo into editable layers: the product, its props, the surface, and a background rebuilt behind them. Built for marketplace main images and campaign variants.",
-    h1: "Turn a product photo into editable layers",
+      "Image to Layers — turn a flat product photo into editable layers: the product, its props, the surface, and a background rebuilt behind them. Made for marketplace main images.",
+    h1: "Image to Layers: turn a product photo into editable layers",
     eyebrow: "E-commerce · L2 default",
     intro: [
       "A product photo is the most reused asset a brand owns and the least reusable file it stores. The bottle, the props, the surface and the backdrop live in one rectangle, so every new campaign starts with a reshoot or a clumsy mask.",
@@ -120,10 +120,10 @@ export const ecommercePages: PageContent[] = [
   {
     slug: "product-image-to-layers/amazon-main-image",
     cluster: "ecommerce",
-    title: "Amazon Main Image to Layers — White Background Without Re-Masking",
+    title: "Image to Layers — Amazon Main Image, White Background",
     description:
-      "Separate an Amazon product photo into product, props and backdrop layers, then rebuild a compliant white main image and styled secondary images from one source file.",
-    h1: "Amazon main images from one separated source",
+      "Image to Layers — separate an Amazon product photo into product, props and backdrop layers, then rebuild a compliant white main image and styled secondary images.",
+    h1: "Image to Layers: Amazon main images from one separated source",
     eyebrow: "Amazon · main image",
     intro: [
       "Amazon's main image rules are simple and unforgiving: pure white background, product filling the frame, no added text or props. Meeting them usually means a dedicated shoot per SKU.",
@@ -217,10 +217,10 @@ export const ecommercePages: PageContent[] = [
   {
     slug: "product-image-to-layers/shopify-product-photo",
     cluster: "ecommerce",
-    title: "Shopify Product Photo to Layers — Reusable Assets for Theme Changes",
+    title: "Image to Layers — Shopify Product Photos, Reusable Assets",
     description:
-      "Separate Shopify product photos into product, props and background layers so seasonal theme changes, collection banners and ad variants reuse the same photography.",
-    h1: "Shopify product photos that survive a theme change",
+      "Image to Layers — separate Shopify product photos into product, props and background layers so theme changes, collection banners and ad variants reuse the same photography.",
+    h1: "Image to Layers: Shopify product photos that survive a theme change",
     eyebrow: "Shopify · catalogue",
     intro: [
       "Shopify stores change their look more often than they change their products. Every theme refresh, seasonal campaign and collection banner is a new composition — usually built from the same six product photos, badly reused.",
@@ -313,10 +313,10 @@ export const ecommercePages: PageContent[] = [
   {
     slug: "product-image-to-layers/product-bundle",
     cluster: "ecommerce",
-    title: "Product Bundle Photo to Layers — Separate Overlapping Products",
+    title: "Image to Layers — Bundles With Overlapping Products",
     description:
-      "Split a bundle or gift-set photo into individual products, packaging and backdrop layers so you can recombine, reprice or rebuild the set for a new campaign.",
-    h1: "Separate a bundle photo into individual products",
+      "Image to Layers — split a bundle or gift-set photo into individual products, packaging and backdrop layers so you can recombine or rebuild the set for a new campaign.",
+    h1: "Image to Layers: separate a bundle photo into individual products",
     eyebrow: "Bundles · overlapping objects",
     intro: [
       "Bundle photography is the hardest product case: three or four items, deliberately overlapped, lit as one composition. Unbundling it by hand means masking each product out of its neighbour.",
@@ -411,10 +411,10 @@ export const ecommercePages: PageContent[] = [
   {
     slug: "product-image-to-layers/ecommerce-ad-creative",
     cluster: "ecommerce",
-    title: "E-commerce Ad Layers — One Creative, Every Format",
+    title: "Image to Layers — E-commerce Ad Creative, Every Format",
     description:
-      "Separate a product ad into product, props, text regions and background layers so one creative can be rebuilt for every placement and aspect ratio without a new shoot.",
-    h1: "One ad creative, every placement",
+      "Image to Layers — separate a product ad into product, props, text regions and background layers so one creative rebuilds for every placement without a new shoot.",
+    h1: "Image to Layers: one ad creative, every placement",
     eyebrow: "Ads · multi-format",
     intro: [
       "A paid campaign needs the same product in six shapes: 1:1 for feed, 4:5 for mobile, 9:16 for stories, 16:9 for display, plus two localisations. Most teams rebuild each one by hand from a flattened export.",

@@ -22,9 +22,9 @@ export default function SiteHeader() {
       }}
     >
       <div className="container-wide flex h-[62px] items-center justify-between gap-6">
-        <Link href="/" className="flex shrink-0 items-center gap-2.5" aria-label="Image Layers home">
+        <Link href="/" className="flex shrink-0 items-center gap-2.5" aria-label="Image to Layers home">
           <LogoMark />
-          <span className="text-[15px] font-semibold tracking-[-0.015em]">Image Layers</span>
+          <span className="text-[15px] font-semibold tracking-[-0.015em]">Image to Layers</span>
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">

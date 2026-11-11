@@ -10,7 +10,7 @@ export default function SiteFooter() {
           <div>
             <Link href="/" className="flex items-center gap-2.5">
               <LogoMark size={24} />
-              <span className="text-[15px] font-semibold">Image Layers</span>
+              <span className="text-[15px] font-semibold">Image to Layers</span>
             </Link>
             <p className="mt-3 max-w-[240px] text-[13px] leading-relaxed text-[#5b6879]">
               AI layer separation for e-commerce images, covers, Live2D characters, and YouTube

@@ -9,8 +9,9 @@ export function buildMetadata(opts: {
 }): Metadata {
   const path = opts.slug ? `/${opts.slug.replace(/^\/|\/$/g, "")}` : "/";
   const url = `${site.url}${path === "/" ? "" : path}`;
+  const leadsWithKeyword = opts.title.toLowerCase().startsWith(site.name.toLowerCase());
   const branded = `${opts.title} | ${site.name}`;
-  const titleValue = branded.length <= 70 ? branded : opts.title;
+  const titleValue = leadsWithKeyword || branded.length > 70 ? opts.title : branded;
   return {
     title: { absolute: titleValue },
     description: opts.description,

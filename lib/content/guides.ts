@@ -4,10 +4,10 @@ export const guidePages: PageContent[] = [
   {
     slug: "guides/how-many-layers",
     cluster: "guide",
-    title: "How Many Layers Does an Image Need? A Practical Guide",
+    title: "Image to Layers — How Many Layers Does an Image Need?",
     description:
-      "Count editing decisions, not objects. Ranges by image type, what over-splitting looks like, and the two-pass workflow that produces better stacks than asking for maximum detail.",
-    h1: "How many layers does an image actually need?",
+      "Image to Layers — count editing decisions, not objects: ranges by image type, what over-splitting looks like, and the two-pass workflow that beats asking for maximum detail.",
+    h1: "Image to Layers: how many layers does an image actually need?",
     eyebrow: "Guide · layer count",
     intro: [
       "The right layer count is the number of independent edits you intend to make — not the number of objects you can see, and certainly not the maximum the tool allows.",
@@ -122,10 +122,10 @@ export const guidePages: PageContent[] = [
   {
     slug: "guides/live2d-layer-naming",
     cluster: "guide",
-    title: "Live2D Layer Naming Conventions That Survive a Handoff",
+    title: "Image to Layers — Live2D Layer Naming That Survives Handoff",
     description:
-      "A naming pattern for character part layers that riggers can sort, filter and bind without a phone call: group first, side last, depth in the stack.",
-    h1: "Live2D layer naming that survives a handoff",
+      "Image to Layers — a naming pattern for character part layers that riggers can sort, filter and bind without a phone call: group first, side last, depth in the stack.",
+    h1: "Image to Layers: Live2D layer naming that survives a handoff",
     eyebrow: "Guide · naming",
     intro: [
       "Half the cost of a bad handoff is sorting. A stack called Layer 1 through Layer 14 forces the rigger to open every layer to find out what it is, and every revision starts with that same exercise.",

@@ -28,7 +28,7 @@ export function Logo({ size = 26 }: Props) {
   return (
     <span className="flex items-center gap-2.5">
       <LogoMark size={size} />
-      <span className="text-[15px] font-semibold tracking-[-0.015em] text-[#101828]">Image Layers</span>
+      <span className="text-[15px] font-semibold tracking-[-0.015em] text-[#101828]">Image to Layers</span>
     </span>
   );
 }

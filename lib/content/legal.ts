@@ -4,13 +4,13 @@ export const legalPages: PageContent[] = [
   {
     slug: "about",
     cluster: "legal",
-    title: "About Image Layers",
+    title: "Image to Layers — About the Product",
     description:
-      "Why we built a layer separation tool around four specific workflows — e-commerce images, covers, Live2D characters and YouTube thumbnails — instead of a general-purpose image editor.",
-    h1: "A layer tool built around four jobs",
+      "Image to Layers — why we built layer separation around four workflows, e-commerce images, covers, Live2D characters and YouTube thumbnails, instead of a general-purpose editor.",
+    h1: "Image to Layers: a layer tool built around four jobs",
     eyebrow: "About",
     intro: [
-      "Image Layers exists because layer separation keeps being sold as a general feature and delivered as a demo. The output looks impressive in a gallery and falls apart the first time someone needs it for a real deliverable.",
+      "Image to Layers exists because layer separation keeps being sold as a general feature and delivered as a demo. The output looks impressive in a gallery and falls apart the first time someone needs it for a real deliverable.",
       "We built it around four jobs instead: e-commerce product images, covers, Live2D characters and YouTube thumbnails. Each has a different notion of what a “good” layer is, and the levels exist to express that.",
     ],
     demo: "ecommerce",
@@ -76,10 +76,10 @@ export const legalPages: PageContent[] = [
   {
     slug: "privacy",
     cluster: "legal",
-    title: "Privacy Policy",
+    title: "Image to Layers — Privacy Policy",
     description:
-      "What Image Layers collects, how uploaded images are processed and deleted, retention windows, subprocessors, and how to request deletion of your data.",
-    h1: "Privacy policy",
+      "Image to Layers — what we collect, how uploaded images are processed and deleted, retention windows, subprocessors, and how to request deletion of your data.",
+    h1: "Image to Layers: privacy policy",
     eyebrow: "Legal",
     intro: [
       "This policy explains what happens to an image after you upload it, how long it is kept, and what you can ask us to delete. It is written to be read, not to be survived.",
@@ -164,13 +164,13 @@ export const legalPages: PageContent[] = [
   {
     slug: "terms",
     cluster: "legal",
-    title: "Terms of Service",
+    title: "Image to Layers — Terms of Service",
     description:
-      "The terms covering use of Image Layers: accounts, credits, acceptable use, ownership of outputs, availability, and liability.",
-    h1: "Terms of service",
+      "Image to Layers — the terms covering accounts, credits, acceptable use, ownership of outputs, availability and liability.",
+    h1: "Image to Layers: terms of service",
     eyebrow: "Legal",
     intro: [
-      "These terms cover your use of Image Layers. By creating an account or using the service you agree to them.",
+      "These terms cover your use of Image to Layers. By creating an account or using the service you agree to them.",
       "Last updated 11 November 2026. This is a preview build; terms will be reissued before general availability.",
     ],
     demo: "ecommerce",
@@ -179,7 +179,7 @@ export const legalPages: PageContent[] = [
         id: "service",
         heading: "The service",
         body: [
-          "Image Layers separates a flat image into editable layers and exports the result as PNG, ZIP or a layered PSD. Output quality depends on the source image and the level you select, and reconstructed areas are estimates rather than recovered originals.",
+          "Image to Layers separates a flat image into editable layers and exports the result as PNG, ZIP or a layered PSD. Output quality depends on the source image and the level you select, and reconstructed areas are estimates rather than recovered originals.",
           "We may change, suspend or discontinue features. Paid plans are not affected by feature removals during a billing period.",
         ],
       },
@@ -251,10 +251,10 @@ export const legalPages: PageContent[] = [
   {
     slug: "security",
     cluster: "legal",
-    title: "Security — How Uploaded Images Are Protected",
+    title: "Image to Layers — How Uploaded Images Are Protected",
     description:
-      "Transport encryption, signed delivery URLs, access scoping, retention windows, deletion, and what to check before uploading client material.",
-    h1: "Security and file handling",
+      "Image to Layers — transport encryption, signed delivery URLs, access scoping, retention windows, deletion, and what to check before uploading client material.",
+    h1: "Image to Layers: security and file handling",
     eyebrow: "Trust",
     intro: [
       "Layer separation means uploading unreleased product photography, unpublished covers and client character art. That is not casual data, and it should not be treated casually.",
@@ -337,10 +337,10 @@ export const legalPages: PageContent[] = [
   {
     slug: "ai-transparency",
     cluster: "legal",
-    title: "AI Transparency — What Is Generated and What Is Recovered",
+    title: "Image to Layers — What Is Generated vs Recovered",
     description:
-      "A plain statement of what the model does, which parts of an output are generated estimates, which are preserved pixels, and the model licensing behind the pipeline.",
-    h1: "What is generated, and what is real",
+      "Image to Layers — what the model does, which parts of an output are generated estimates, which are preserved pixels, and the model licensing behind the pipeline.",
+    h1: "Image to Layers: what is generated, and what is real",
     eyebrow: "Transparency",
     intro: [
       "Every separation produces two kinds of pixels: the ones that came from your image, and the ones the model invented where something was hidden. Mixing them silently is how a tool becomes untrustworthy.",
