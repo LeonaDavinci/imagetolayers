@@ -21,13 +21,17 @@ export function buildMetadata(opts: {
       url,
       siteName: site.name,
       type: "website",
-      images: [{ url: opts.image ?? "/demo/ecommerce.webp", width: 1024, height: 968 }],
+      images: [
+        opts.image
+          ? { url: opts.image, width: 1024, height: 968 }
+          : { url: "/brand/og.png", width: 1200, height: 630, alt: `${site.name} — ${opts.title}` },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: opts.title,
       description: opts.description,
-      images: [opts.image ?? "/demo/ecommerce.webp"],
+      images: [opts.image ?? "/brand/og.png"],
     },
   };
 }
@@ -38,7 +42,7 @@ export function organizationSchema() {
     "@type": "Organization",
     name: site.name,
     url: site.url,
-    logo: `${site.url}/icon.svg`,
+    logo: `${site.url}/brand/logo-mark-512.png`,
     description: site.description,
     email: site.email,
     sameAs: [`https://twitter.com/${site.twitter.replace("@", "")}`],

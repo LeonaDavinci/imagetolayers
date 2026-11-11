@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Image Layers">
+  <title>Image Layers</title>
+  <rect x="1" y="11" width="16" height="16" rx="4" fill="#E4EEFF" stroke="#B7D2FA" stroke-width="1.2" />
+  <rect x="6" y="6.5" width="16" height="16" rx="4" fill="#93B8F7" />
+  <rect x="11" y="2" width="16" height="16" rx="4" fill="#2563EB" />
+  <path d="M15.6 8.7h7.2M15.6 12.7h5.4" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" />
+</svg>
