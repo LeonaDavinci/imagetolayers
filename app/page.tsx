@@ -133,8 +133,8 @@ export default function HomePage() {
               Turn a flat image into <span className="grad-text">editable layers</span>
             </h1>
             <p className="mx-auto mt-4 max-w-[640px] text-[15.5px] leading-[1.7] text-[#46536a] sm:text-[16.5px]">
-              Separate the subject, props, text regions and background — then rebuild what was hidden
-              behind them. Built for product photography, covers, Live2D characters and thumbnails.
+              Separate the subject, props, text and background — then rebuild what was hidden
+              behind them. Built for product photography, covers, Live2D and thumbnails.
             </p>
             <div className="mt-7 flex flex-col justify-center gap-2.5 sm:flex-row sm:items-center">
               <Link href="/app" className="btn btn-primary">
