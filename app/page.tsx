@@ -49,28 +49,32 @@ const pillars = [
     meta: "/demo/ecommerce.webp",
     level: "L2",
     title: "E-commerce product images",
-    body: "Separate a product from its props and backdrop, then rebuild the main image for every marketplace without reshooting.",
+    body: "Product, props and backdrop separated, so one shoot serves every marketplace.",
+    pos: "50% 50%",
   },
   {
     slug: "/cover-to-layers",
     meta: "/demo/cover.webp",
     level: "L3",
     title: "Covers and posters",
-    body: "Reopen a finished cover: artwork stays, type regions come apart, the field stretches to a new trim size.",
+    body: "Artwork stays, type comes apart, the field stretches to a new trim size.",
+    pos: "50% 40%",
   },
   {
     slug: "/live2d-character-to-layers",
     meta: "/demo/live2d.webp",
     level: "L4",
     title: "Live2D characters",
-    body: "Hair, face, eyes, clothing and accessories as separate PNGs with depth order — rigging starts at the mesh.",
+    body: "Hair, face, eyes, clothing and tail as separate PNGs with depth order.",
+    pos: "50% 0%",
   },
   {
     slug: "/youtube-thumbnail-to-layers",
     meta: "/demo/youtube.webp",
     level: "L3",
     title: "YouTube thumbnails",
-    body: "Keep the face that performs, replace the headline, and test one variable at a time instead of everything.",
+    body: "Keep the face that performs, swap the headline, test one variable.",
+    pos: "100% 45%",
   },
 ];
 
@@ -134,7 +138,7 @@ export default function HomePage() {
             </h1>
             <p className="mx-auto mt-4 max-w-[640px] text-[15.5px] leading-[1.7] text-[#46536a] sm:text-[16.5px]">
               Separate the subject, props, text and background — then rebuild what was hidden
-              behind them. Built for product photography, covers, Live2D and thumbnails.
+              behind them. Pick your workflow below; each one sets its own layer level.
             </p>
             <div className="mt-7 flex flex-col justify-center gap-2.5 sm:flex-row sm:items-center">
               <Link href="/app" className="btn btn-primary">
@@ -151,7 +155,57 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="mt-10">
+          <div className="mt-12">
+            <div className="mb-4 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+              <h2 className="text-[14.5px] font-semibold text-[#101828]">Start from your workflow</h2>
+              <Link href="/layer-levels" className="text-[12px] text-[#1d4ed8] hover:underline">
+                Each workflow sets its own layer level →
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {pillars.map((pillar) => (
+                <Link
+                  key={pillar.slug}
+                  href={pillar.slug}
+                  className="card-link group flex overflow-hidden rounded-[12px] border bg-white sm:flex-col"
+                  style={{ borderColor: "var(--line)" }}
+                >
+                  <div
+                    className="relative h-[104px] w-[104px] shrink-0 overflow-hidden border-r sm:h-[124px] sm:w-full sm:border-b sm:border-r-0"
+                    style={{ borderColor: "var(--line)" }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={pillar.meta}
+                      alt={`${pillar.title} example`}
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+                      style={{ objectPosition: pillar.pos }}
+                    />
+                    <span
+                      className="absolute left-2 top-2 rounded-[5px] border bg-white/95 px-1.5 py-0.5 text-[10px] font-medium text-[#344054]"
+                      style={{ borderColor: "var(--line)" }}
+                    >
+                      {pillar.level}
+                    </span>
+                  </div>
+                  <div className="flex min-w-0 flex-1 flex-col p-3.5">
+                    <h3 className="text-[13.5px] font-medium leading-snug text-[#101828]">{pillar.title}</h3>
+                    <p className="mt-1 text-[11.5px] leading-relaxed text-[#5b6879]">{pillar.body}</p>
+                    <span className="mt-auto pt-2.5 text-[11px] text-[#1d4ed8]">Open workflow →</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-11 border-t pt-8" style={{ borderColor: "var(--line)" }}>
+            <div className="mb-3 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+              <h2 className="text-[14.5px] font-semibold text-[#101828]">Try a separation right here</h2>
+              <span className="text-[11.5px] text-[#6b7280]">
+                Sample image loads instantly · files stay in your browser
+              </span>
+            </div>
             <LayerWorkbench demo="ecommerce" />
           </div>
 
@@ -171,58 +225,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-14" style={{ borderTop: "1px solid var(--line)" }}>
-        <div className="container-wide">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <SectionHeading
-              kicker="Four workflows"
-              title="One tool, four ideas of a good layer"
-              lead="A product photo, a book cover, a rig-ready character and a thumbnail do not want the same stack. Each workflow sets a default level for its own reason."
-            />
-            <Link href="/layer-levels" className="btn btn-ghost btn-sm mb-7">
-              How levels work
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {pillars.map((pillar) => (
-              <Link
-                key={pillar.slug}
-                href={pillar.slug}
-                className="card-link group overflow-hidden rounded-[12px] border bg-white"
-                style={{ borderColor: "var(--line)" }}
-              >
-                <div className="grid grid-cols-1 sm:min-h-[168px] sm:grid-cols-[168px_1fr]">
-                  <div
-                    className="relative h-[150px] overflow-hidden border-b sm:h-full sm:min-h-[168px] sm:border-b-0 sm:border-r"
-                    style={{ borderColor: "var(--line)" }}
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={pillar.meta}
-                      alt={`${pillar.title} example`}
-                      loading="lazy"
-                      className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-                    />
-                    <span
-                      className="absolute left-2 top-2 rounded-[5px] border bg-white/95 px-1.5 py-0.5 text-[10px] font-medium text-[#344054]"
-                      style={{ borderColor: "var(--line)" }}
-                    >
-                      {pillar.level}
-                    </span>
-                  </div>
-                  <div className="p-4">
-                    <h3 className="text-[15px] font-medium text-[#101828]">{pillar.title}</h3>
-                    <p className="mt-1.5 text-[12.5px] leading-relaxed text-[#5b6879]">{pillar.body}</p>
-                    <span className="mt-3 inline-block text-[11.5px] text-[#1d4ed8]">Open workflow →</span>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section-soft py-14">
+      <section className="section-soft py-14" style={{ borderTop: "1px solid var(--line)" }}>
         <div className="container-wide grid gap-10 lg:grid-cols-2 lg:items-center">
           <div>
             <SectionHeading
