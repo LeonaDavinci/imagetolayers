@@ -40,6 +40,9 @@ lib/
     index.ts            Page registry, breadcrumbs, related lookups
     core.ts · levels.ts · ecommerce.ts · covers.ts · live2d.ts
     youtube.ts · compare.ts · guides.ts · legal.ts
+
+  backend/
+  ......
 ```
 
 ## Adding a page
