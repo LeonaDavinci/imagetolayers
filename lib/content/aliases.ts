@@ -91,94 +91,7 @@ export const aliasPages: PageContent[] = [
         a: "Uploads are processed to produce the stack and are not used to train models. See [security](/security) for retention details.",
       },
     ],
-    related: ["image-to-layers", "image-to-layers/online", "image-to-psd", "image-to-layers/editable-rgb"],
-    updated: "2026-11-12",
-  },
-  {
-    slug: "image-to-layers/online",
-    cluster: "core",
-    title: "Image to Layers Online — Browser Splitting, No Install",
-    description:
-      "Image to Layers online runs entirely in the browser: upload a JPG, PNG or WebP, choose a level, and download PNGs, a ZIP or a PSD. Nothing to install.",
-    h1: "Image to Layers online: separate a photo without installing anything",
-    eyebrow: "Online · runs in the browser",
-    intro: [
-      "Searching for an image to layers tool online usually means one of two things: you are on a machine you do not administer, or you do not want another 2 GB desktop application for a job you will run twice this month.",
-      "Both are reasonable. The studio runs in the browser with no plugin, no download and no queue behind a render node — open a tab, drop a file, get a stack back.",
-    ],
-    demo: "cover",
-    level: "L2",
-    tool: true,
-    sections: [
-      {
-        id: "how",
-        heading: "What actually happens in the tab",
-        lead: "The browser is the client, not the model.",
-        body: [
-          "The page uploads your file over HTTPS, the separation runs on a GPU worker, and the resulting stack comes back as a job you can inspect layer by layer. Nothing is installed locally, which is why the same link works on a Chromebook, a locked-down work laptop, an iPad and a phone.",
-          "That also means your device never has to hold the model. The trade-off is honest: a browser tool needs a connection, and a very large file takes longer to upload than it takes to process.",
-        ],
-        bullets: [
-          { title: "No install, no plugin", text: "No WebAssembly download, no extension, no admin rights. A current Chrome, Safari, Firefox or Edge is enough." },
-          { title: "Same stack on any device", text: "The layer list, canvas toggles and export options are identical on desktop and mobile — the layout adapts, the output does not." },
-          { title: "Exports are local", text: "PNGs, the ZIP and the PSD download straight to your device; there is no cloud library you have to clean up later." },
-          { title: "Session-scoped", text: "Close the tab and the working stack is gone. That is a privacy feature until the moment you forget to export." },
-        ],
-      },
-      {
-        id: "browser-vs-app",
-        heading: "Browser tool or desktop app",
-        body: [
-          "Desktop separation tools win on two things: very large files that would be painful to upload, and batch jobs where you want to queue fifty images and walk away. If that is your week, use one.",
-          "For everything else the browser is the shorter path — and the one that works on the machine you are actually sitting at.",
-        ],
-        table: {
-          head: ["", "Online studio", "Desktop app"],
-          rows: [
-            ["Setup", "None", "Download, licence, updates"],
-            ["Works on a locked-down machine", "Yes", "Usually blocked"],
-            ["Very large source files", "Upload-bound", "Local, faster"],
-            ["Batch of 50 images", "One at a time today", "Queued"],
-            ["Phone or tablet", "Yes", "Rarely"],
-          ],
-        },
-      },
-      {
-        id: "limits",
-        heading: "Practical limits worth knowing",
-        body: [
-          "Uploads are capped at 10 MB per image in this build. That covers a full-resolution product photo and most cover artwork, but not a 60 MP camera raw exported at maximum quality — downscale to about 4000 px on the long edge and the masks will still hold up at print size.",
-          "Mobile browsers can run the studio, but the canvas toggles are fiddly at 390 px. Reviewing and exporting on a phone works; judging a fine hair edge does not.",
-        ],
-      },
-      {
-        id: "privacy",
-        heading: "Where your file goes",
-        body: [
-          "Files are uploaded to process the job, held for the session, and not used as training data. If the image is under NDA or contains a face you do not have rights to, read [security](/security) before uploading rather than after.",
-        ],
-        note: "Comparing options? [Layers versus background removal](/compare/remove-bg-vs-image-to-layers) explains why a browser cutout tool is not the same job.",
-      },
-    ],
-    faq: [
-      {
-        q: "Do I need an account to use it online?",
-        a: "No for the preview. You can open the studio, load a sample or your own file, and see the stack without signing in. An account is what meters credits and unlocks higher levels.",
-      },
-      {
-        q: "Does it work on a phone?",
-        a: "Yes, in any current mobile browser. Uploading from the camera roll works; fine mask review is better on a larger screen.",
-      },
-      {
-        q: "Why is my upload failing?",
-        a: "Almost always size. The cap is 10 MB per image — resize the long edge to about 4000 px and try again.",
-      },
-      {
-        q: "Is the online version slower than a desktop app?",
-        a: "Processing time is comparable. What differs is transfer time: a 9 MB upload on a slow connection can take longer than the separation itself.",
-      },
-    ],
-    related: ["image-to-layers", "image-to-layers/convert", "ai-layer-splitter-no-sign-in", "extract-layers-from-image"],
+    related: ["image-to-layers", "image-to-layers/free", "image-to-psd", "image-to-layers/editable-rgb"],
     updated: "2026-11-12",
   },
   {
@@ -262,96 +175,16 @@ export const aliasPages: PageContent[] = [
     updated: "2026-11-12",
   },
   {
-    slug: "ai-layer-splitter-no-sign-in",
-    cluster: "core",
-    title: "Image to Layers — AI Layer Splitter With No Sign-In",
-    description:
-      "Image to Layers is an AI layer splitter with no sign-in: open the studio, split a sample or your own image, and only create an account to save exports.",
-    h1: "Image to Layers: an AI layer splitter with no sign-in",
-    eyebrow: "No sign-in · try before an account",
-    intro: [
-      "A sign-up wall before you have seen the output is a bad trade. You spend an email address and a password to find out whether the tool handles your kind of image, and most of the time the answer arrives three screens too late.",
-      "Here the order is reversed. The studio opens without an account, the sample is already loaded, and your own file can go through the full separation before anything asks who you are.",
-    ],
-    demo: "live2d",
-    level: "L4",
-    tool: true,
-    sections: [
-      {
-        id: "without-account",
-        heading: "What works with no account",
-        body: [
-          "Everything up to the point where you take the file away. That is a deliberate line: judging the quality of a split needs the whole stack on screen, and metering credits against a preview would make the preview useless.",
-        ],
-        bullets: [
-          { title: "Open the studio", text: "No interstitial, no email capture, no cookie wall in front of the canvas." },
-          { title: "Load the sample", text: "A four-scene sample with a full layer stack, so you can see how depth order and reconstructed regions behave before uploading anything." },
-          { title: "Split your own image", text: "JPG, PNG or WebP up to 10 MB, at any level. The result is inspectable layer by layer." },
-          { title: "Inspect every layer", text: "Toggle visibility, hide the subject to check the rebuilt background, and split a layer that still mixes two editing decisions." },
-        ],
-      },
-      {
-        id: "why-signin",
-        heading: "What the sign-in is actually for",
-        body: [
-          "Not gatekeeping — accounting. Every separation consumes GPU time and bills as credits, and credits need somewhere to live. An account is the ledger.",
-          "Signing in also makes a job resumable: the stack is tied to you rather than to a tab, so a refresh does not throw away four minutes of work.",
-        ],
-        bullets: [
-          { title: "Credits", text: "Paid runs are metered at 30 credits for L1 up to 90 for L4, and the balance has to belong to someone." },
-          { title: "Exports", text: "PNG, ZIP and PSD downloads are attached to the account that owns the run." },
-          { title: "History", text: "Past runs stay available instead of disappearing when the browser session ends." },
-        ],
-      },
-      {
-        id: "privacy",
-        heading: "No account does not mean no privacy",
-        body: [
-          "You can run a separation without an account, and the file is still handled the same way: used to produce the stack, held for the session, never used as training data. Read [security](/security) for the retention window and [AI transparency](/ai-transparency) for what the model does and does not do.",
-        ],
-      },
-      {
-        id: "compare",
-        heading: "How this differs from a free cutout site",
-        body: [
-          "Free background removers are genuinely free, and if all you need is a subject on transparency they are the right tool. What they return is one layer and a discarded scene.",
-          "A layer splitter returns the scene. That is the whole difference, and it is why the output is worth an account when the job needs a second version.",
-        ],
-        note: "[Layers versus background removal](/compare/remove-bg-vs-image-to-layers) puts the two outputs side by side.",
-      },
-    ],
-    faq: [
-      {
-        q: "Can I export without creating an account?",
-        a: "Not in this build. Inspection is open, downloads are metered, and metering requires an account. The sample stack is fully visible so you can judge quality first.",
-      },
-      {
-        q: "What do you collect at sign-up?",
-        a: "An email address and a password, nothing else. No card is required to start, and see [privacy](/privacy) for the full list.",
-      },
-      {
-        q: "Is the layer splitter really AI, or edge detection?",
-        a: "It is a segmentation model that groups regions semantically — a bottle is one layer rather than eleven colour bands. [AI transparency](/ai-transparency) explains the pipeline.",
-      },
-      {
-        q: "Does signing in change the output quality?",
-        a: "No. The same model runs before and after sign-in; an account only meters credits and stores history.",
-      },
-    ],
-    related: ["image-to-layers", "image-layer-separator", "image-to-layers/online", "compare/remove-bg-vs-image-to-layers"],
-    updated: "2026-11-12",
-  },
-  {
     slug: "image-to-layers/free",
     cluster: "core",
-    title: "Image to Layers Free — What You Can Split Without Paying",
+    title: "Image to Layers Free — Split Online, No Sign-In, No Install",
     description:
-      "Image to Layers free covers the whole preview: split a sample or your own image, inspect every layer, and only spend credits when you take the stack away.",
-    h1: "Image to Layers free: what you can do without paying",
-    eyebrow: "Free · where the line sits",
+      "Image to Layers free covers the whole preview: split a sample or your own image in a browser tab, inspect every layer, and pay nothing until you export the stack.",
+    h1: "Image to Layers free: in a browser tab, with no sign-in and nothing to install",
+    eyebrow: "Free · online · no account",
     intro: [
-      "“Free” means something different on every tool page. On some it means five images a day. On others it means the tool is free and your downloads come back watermarked, or resized to something unusable.",
-      "Here it means one specific thing: **looking is free, taking is metered**. The separation, the layer list, the reconstructed background and every toggle on the canvas cost nothing. Credits start when you export the stack — and the number depends on the level you chose, not on how many times you looked.",
+      "Three questions get asked about this tool, and underneath they are one question. Is it free? Can I run it in a tab instead of installing a program? Do I have to create an account before I see a single layer?",
+      "The answer to all three is the same: **looking is free, and it happens in a tab**. The separation, the layer list, the reconstructed background and every toggle on the canvas cost nothing and require nothing — no download, no email, no card. Credits begin at the moment you take the stack away.",
     ],
     demo: "ecommerce",
     level: "L1",
@@ -365,31 +198,75 @@ export const aliasPages: PageContent[] = [
           "Layer separation is not something you can evaluate from a thumbnail. You have to hide the subject and look at the reconstructed base, zoom into the hair edge, check whether the label survived as its own layer. Every one of those actions is free, unmetered and un-watermarked, because a preview that hides the flaws is not a preview.",
         ],
         bullets: [
-          { title: "Open without an account", text: "The studio loads with a four-scene sample already separated. No email capture in front of the canvas." },
-          { title: "Split your own file", text: "JPG, PNG or WebP up to 10 MB at any level L1–L4, and inspect the result layer by layer." },
+          { title: "Open without an account", text: "The studio loads with a four-scene sample already separated. No interstitial, no email capture, no cookie wall in front of the canvas." },
+          { title: "Split your own file", text: "JPG, PNG or WebP up to 10 MB at any level L1–L4, uploaded from your device and inspected layer by layer." },
           { title: "No watermark, no downscale", text: "What you see is the mask the model produced, not a blurred teaser of it." },
           { title: "Credit only on export", text: "PNG, ZIP and PSD downloads are the metered step — 30 credits at L1 up to 90 at L4." },
         ],
       },
       {
-        id: "why",
-        heading: "Why the export is the part that costs",
+        id: "in-tab",
+        heading: "What “online” actually means here",
+        lead: "The browser is the client, not the model.",
         body: [
-          "Separation runs on a GPU worker, and GPU time is the one cost that does not disappear at scale. There are only three ways to make unlimited exports free: put ads around them, watermark them, or monetise the files themselves. The first is annoying, the second defeats the purpose, and the third is unacceptable for a product photo you have not launched yet.",
-          "Metering the export keeps the incentives straight. You can try a dozen images, decide the tool is wrong for your case, and pay nothing — which is the outcome a free tier should actually optimise for.",
+          "The page uploads your file over HTTPS, the separation runs on a GPU worker, and the resulting stack comes back as a job you can inspect layer by layer. Nothing is installed locally, which is why the same link works on a Chromebook, a locked-down work laptop, an iPad and a phone — no admin rights, no 2 GB download for a job you will run twice this month.",
+          "The trade-offs are honest ones. A browser tool needs a connection, and a very large file takes longer to upload than it takes to process. Uploads are capped at 10 MB per image, which covers a full-resolution product photo and most cover artwork but not a 60 MP camera raw exported at maximum quality — downscale to about 4000 px on the long edge and the masks still hold up at print size. Mobile browsers can run the studio, but the canvas toggles are fiddly at 390 px: reviewing and exporting on a phone works, judging a fine hair edge does not.",
+        ],
+        bullets: [
+          { title: "No install, no plugin", text: "No WebAssembly download, no extension, no licence key. A current Chrome, Safari, Firefox or Edge is enough." },
+          { title: "Same stack on any device", text: "The layer list, canvas toggles and export options are identical on desktop and mobile — the layout adapts, the output does not." },
+          { title: "Exports land on your device", text: "PNGs, the ZIP and the PSD download straight to you; there is no cloud library you have to clean up later." },
+          { title: "Session-scoped", text: "Close the tab and the working stack is gone. That is a privacy feature until the moment you forget to export." },
+        ],
+      },
+      {
+        id: "no-signin",
+        heading: "What the sign-in is actually for",
+        body: [
+          "Not gatekeeping — accounting. Every separation consumes GPU time and bills as credits, and credits need somewhere to live. An account is the ledger, and it is also what makes a run resumable: the stack is tied to you rather than to a tab, so a refresh does not throw away four minutes of work.",
+          "Running without an account is not a privacy downgrade either. The file is handled identically: used to produce the stack, held for the session, never used as training data. Read [security](/security) for the retention window and [AI transparency](/ai-transparency) for what the model does and does not do.",
+        ],
+        bullets: [
+          { title: "Credits", text: "Paid runs are metered at 30 credits for L1 up to 90 for L4, and the balance has to belong to someone." },
+          { title: "Exports", text: "PNG, ZIP and PSD downloads are attached to the account that owns the run." },
+          { title: "History", text: "Past runs stay available instead of disappearing when the browser session ends." },
         ],
       },
       {
         id: "table",
-        heading: "Free versus metered",
+        heading: "Free, online and signed-out in one table",
+        lead: "Every step of the job, and what it asks of you.",
+        body: [
+          "The export is the only metered step, and the reason is not arbitrary. Separation runs on a GPU worker, and GPU time is the one cost that does not disappear at scale. There are only three ways to make unlimited exports free: put ads around them, watermark them, or monetise the files themselves. The first is annoying, the second defeats the purpose, and the third is unacceptable for a product photo you have not launched yet.",
+          "Metering the export keeps the incentives straight. You can try a dozen images, decide the tool is wrong for your case, and pay nothing — which is the outcome a free tier should actually optimise for.",
+        ],
         table: {
-          head: ["Action", "Cost", "Notes"],
+          head: ["Step", "Cost", "What it needs"],
           rows: [
-            ["Open the studio, load the sample", "Free", "No account required"],
-            ["Run a separation on your own image", "Free to inspect", "Any level, up to 10 MB"],
-            ["Toggle layers, check edges", "Free", "The whole point of a preview"],
-            ["Export PNG / ZIP / PSD", "30–90 credits", "Set by level, not by file count"],
-            ["Re-run at a higher level", "30–90 credits", "Cheaper than a reshoot, still metered"],
+            ["Open the studio, load the sample", "Free", "Nothing"],
+            ["Split your own image, any level", "Free to inspect", "Nothing"],
+            ["Hide layers, zoom edges, re-inspect", "Free", "Nothing"],
+            ["Export PNG / ZIP / PSD", "30–90 credits", "An account, no install"],
+            ["Re-run at a higher level", "30–90 credits", "An account, no install"],
+            ["Batch of fifty images", "Not available today", "—"],
+          ],
+        },
+      },
+      {
+        id: "browser-vs-app",
+        heading: "Browser tab or desktop app",
+        body: [
+          "Desktop separation tools win on two things: very large files that would be painful to upload, and batch jobs where you want to queue fifty images and walk away. If that is your week, use one — this page is not going to pretend otherwise.",
+          "For everything else the browser is the shorter path, and the one that works on the machine you are actually sitting at.",
+        ],
+        table: {
+          head: ["", "This studio", "Desktop app"],
+          rows: [
+            ["Setup", "None", "Download, licence, updates"],
+            ["Locked-down work machine", "Works", "Usually blocked"],
+            ["Very large source files", "Upload-bound", "Local, faster"],
+            ["Batch of 50 images", "One at a time today", "Queued"],
+            ["Phone or tablet", "Works", "Rarely"],
           ],
         },
       },
@@ -405,28 +282,36 @@ export const aliasPages: PageContent[] = [
           { title: "Export once, in the richest format", text: "A layered PSD contains every PNG you would have downloaded separately — take it once and slice it locally." },
           { title: "Reuse the stack", text: "One separation serves the main image, the ad variants and the thumbnail crop. That is the entire argument for layers over cutouts." },
         ],
-        note: "Credit packs and the free allowance are listed on [pricing](/pricing). No card is needed to start.",
+        note: "Credit packs and the sample allowance are listed on [pricing](/pricing). No card is needed to start, and no image is required either — the sample is already loaded.",
       },
     ],
     faq: [
       {
         q: "Is image to layers free?",
-        a: "The separation and inspection are free; exporting the stack costs credits. You can open the studio, split a sample or your own image at any level, and judge the result without signing in or paying.",
+        a: "The separation and inspection are free; exporting the stack costs credits. You can open the studio, split a sample or your own image at any level, and judge the result without installing anything, signing in or paying.",
+      },
+      {
+        q: "Can I use it online without installing a program?",
+        a: "Yes. It runs in a browser tab with no plugin, no download and no admin rights, so the same link works on a Chromebook, a work laptop you cannot install to, an iPad and a phone.",
+      },
+      {
+        q: "Can I export without creating an account?",
+        a: "Not in this build. Inspection is open to everyone; downloads are metered, and metering needs a ledger. The sample stack is fully visible so you can judge quality before deciding.",
+      },
+      {
+        q: "Do free exports carry a watermark?",
+        a: "No. The site is not monetised through branding on your files — exports are clean at every tier, including sample runs.",
       },
       {
         q: "How many free images do I get?",
         a: "There is no cap on inspecting. A new account starts with enough credits for a few L1 runs, and packs are only needed once you are exporting regularly.",
       },
       {
-        q: "Do free exports carry a watermark?",
-        a: "No. The site is not monetised through branding on your files — exports are clean at every tier, including the sample runs.",
-      },
-      {
-        q: "Is the free version lower quality?",
-        a: "No. The same model runs at every price point; what changes is the level you ask for. L1 is cheaper because it finds fewer layers, not because it tries less hard.",
+        q: "How big a file can I upload, and does it work on a phone?",
+        a: "10 MB per image, which covers a full-resolution product photo; downscale the long edge to about 4000 px for anything larger. Mobile browsers work, though fine mask review is easier on a larger screen.",
       },
     ],
-    related: ["image-to-layers", "image-to-psd", "image-to-layers/online", "ai-layer-splitter-no-sign-in"],
+    related: ["image-to-layers", "image-to-psd", "image-to-layers/convert", "compare/remove-bg-vs-image-to-layers"],
     updated: "2026-11-12",
   },
   {

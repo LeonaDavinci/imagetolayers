@@ -22,7 +22,7 @@ export const nav: NavGroup[] = [
       { label: "Image to PSD", href: "/image-to-psd", hint: "Layered export" },
       { label: "Layer separator", href: "/image-layer-separator", hint: "Tool alias" },
       { label: "Extract layers", href: "/extract-layers-from-image", hint: "From one file" },
-      { label: "AI layer splitter", href: "/ai-layer-splitter-no-sign-in", hint: "No sign-in to preview" },
+      { label: "Free, no sign-in", href: "/image-to-layers/free", hint: "Runs in the browser" },
     ],
   },
   {
