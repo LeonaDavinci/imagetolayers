@@ -101,3 +101,71 @@ export const footerColumns = [
     ],
   },
 ];
+
+export const navJa: NavGroup[] = [
+  {
+    label: "レイヤー分解",
+    links: [
+      { label: "画像をレイヤーに", href: "/ja/image-to-layers", hint: "どんな画像でも" },
+      { label: "画像を PSD に", href: "/ja/image-to-psd", hint: "レイヤーを保って書き出し" },
+      {
+        label: "パーツ分解ツール",
+        href: "/ja/character-to-layers/character-parts-extractor",
+        hint: "イラストから個別に抽出",
+      },
+    ],
+  },
+  {
+    label: "用途",
+    links: [
+      { label: "商品画像", href: "/ja/product-image-to-layers", hint: "EC のメイン画像" },
+      { label: "表紙・ポスター", href: "/ja/cover-to-layers", hint: "文字と図版を分ける" },
+      { label: "キャラクター・Live2D", href: "/ja/character-to-layers", hint: "リグ用パーツ" },
+      { label: "YouTube サムネイル", href: "/ja/youtube-thumbnail-to-layers", hint: "文字だけ差し替え" },
+    ],
+  },
+];
+
+export const footerColumnsJa = [
+  {
+    title: "プロダクト",
+    links: [
+      { label: "画像をレイヤーに", href: "/ja/image-to-layers" },
+      { label: "画像を PSD に", href: "/ja/image-to-psd" },
+      { label: "料金とクレジット", href: "/ja/pricing" },
+    ],
+  },
+  {
+    title: "用途",
+    links: [
+      { label: "商品画像", href: "/ja/product-image-to-layers" },
+      { label: "表紙・ポスター", href: "/ja/cover-to-layers" },
+      { label: "キャラクター", href: "/ja/character-to-layers" },
+      { label: "YouTube サムネイル", href: "/ja/youtube-thumbnail-to-layers" },
+    ],
+  },
+  {
+    title: "キャラクター",
+    links: [
+      { label: "パーツ分解ツール", href: "/ja/character-to-layers/character-parts-extractor" },
+      { label: "Live2D パーツ分け", href: "/ja/character-to-layers/live2d" },
+    ],
+  },
+  {
+    title: "運営",
+    links: [
+      { label: "会社情報", href: "/about" },
+      { label: "AI の扱い", href: "/ai-transparency" },
+      { label: "プライバシー", href: "/privacy" },
+      { label: "利用規約", href: "/terms" },
+    ],
+  },
+];
+
+export function navFor(locale: "en" | "ja") {
+  return locale === "ja" ? navJa : nav;
+}
+
+export function footerFor(locale: "en" | "ja") {
+  return locale === "ja" ? footerColumnsJa : footerColumns;
+}

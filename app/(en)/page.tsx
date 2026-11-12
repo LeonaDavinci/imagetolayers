@@ -10,6 +10,8 @@ export const metadata: Metadata = buildMetadata({
   title: "Image to Layers — Turn Flat Images into Editable Layers",
   description:
     "Image to Layers separates a flat image into editable, transparent layers — product photos, covers, Live2D characters, thumbnails — and exports PNG or layered PSD.",
+  locale: "en",
+  available: ["en", "ja"],
 });
 
 const homeFaq = [
@@ -221,7 +223,7 @@ export default function HomePage() {
                 Sample image loads instantly · files stay in your browser
               </span>
             </div>
-            <LayerWorkbench demo="ecommerce" />
+            <LayerWorkbench demo="ecommerce" locale="en" />
           </div>
 
           <dl
@@ -359,7 +361,7 @@ export default function HomePage() {
             title="Four images, four failure points"
             lead="Each example breaks in a place worth knowing about before you run your own image."
           />
-          <DemoStrip />
+          <DemoStrip locale="en" />
           <div className="mt-4">
             <Link href="/showcase" className="text-[12.5px] text-[#1d4ed8] hover:underline">
               Read the breakdown for each example →

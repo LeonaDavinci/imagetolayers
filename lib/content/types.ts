@@ -19,7 +19,9 @@ export type Section = {
 export type Faq = { q: string; a: string };
 
 export type PageContent = {
+  /** Slug is locale-independent: /ja/x and /x share the same value. */
   slug: string;
+  locale?: "en" | "ja";
   cluster:
     | "core"
     | "level"

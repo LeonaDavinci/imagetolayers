@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
+import type { Locale } from "@/lib/i18n";
+import { languageAlternates, localeHref, localeMeta, locales as allLocales } from "@/lib/i18n";
 
 const OG_FALLBACK = "/brand/og.png";
 
@@ -19,24 +21,41 @@ export function buildMetadata(opts: {
   description: string;
   slug?: string;
   image?: string;
+  locale?: Locale;
+  /** Locales that actually have this page. Drives hreflang and og:locale. */
+  available?: Locale[];
 }): Metadata {
-  const path = opts.slug ? `/${opts.slug.replace(/^\/|\/$/g, "")}` : "/";
+  const locale = opts.locale ?? "en";
+  const path = localeHref(locale, opts.slug ?? "");
+  const slug = (opts.slug ?? "").replace(/^\/|\/$/g, "");
   const url = `${site.url}${path === "/" ? "" : path}`;
   const leadsWithKeyword = opts.title.toLowerCase().startsWith(site.name.toLowerCase());
+  // Japanese titles lead with the query rather than the brand, so treat any
+  // title that already mentions the product as branded and leave it alone.
+  const hasBrand = opts.title.toLowerCase().includes(site.name.toLowerCase());
   const branded = `${opts.title} | ${site.name}`;
-  const titleValue = leadsWithKeyword || branded.length > 70 ? opts.title : branded;
+  const titleValue = leadsWithKeyword || hasBrand || branded.length > 70 ? opts.title : branded;
   // Every page must ship a 1200×630 card so social crawlers never crop a vertical demo image.
   const image = opts.image ?? OG_FALLBACK;
+  const translated = (opts.available ?? allLocales).filter((l) => l !== locale);
+  const alternates = translated.length ? languageAlternates(slug, opts.available ?? allLocales) : undefined;
   return {
     title: { absolute: titleValue },
     description: opts.description,
-    alternates: { canonical: path },
+    alternates: {
+      canonical: path,
+      ...(alternates ? { languages: alternates } : {}),
+    },
     openGraph: {
       title: opts.title,
       description: opts.description,
       url,
       siteName: site.name,
       type: "website",
+      locale: localeMeta[locale].ogLocale,
+      ...(translated.length
+        ? { alternateLocale: translated.map((l) => localeMeta[l].ogLocale) }
+        : {}),
       images: [{ url: image, width: 1200, height: 630, alt: socialAlt(opts.title) }],
     },
     twitter: {
@@ -60,12 +79,13 @@ export function organizationSchema() {
   };
 }
 
-export function websiteSchema() {
+export function websiteSchema(locale: Locale = "en") {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: site.name,
-    url: site.url,
+    url: `${site.url}${localeHref(locale)}`,
+    inLanguage: localeMeta[locale].htmlLang,
   };
 }
 
@@ -74,15 +94,18 @@ export function softwareSchema(opts: {
   description: string;
   slug: string;
   credits: number;
+  locale?: Locale;
 }) {
+  const locale = opts.locale ?? "en";
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name: opts.name,
     description: opts.description,
-    url: `${site.url}/${opts.slug}`,
+    url: `${site.url}${localeHref(locale, opts.slug)}`,
     applicationCategory: "DesignApplication",
     operatingSystem: "Web",
+    inLanguage: localeMeta[locale].htmlLang,
     offers: {
       "@type": "Offer",
       price: "0",
@@ -149,7 +172,9 @@ export function articleSchema(opts: {
   description: string;
   slug: string;
   updated: string;
+  locale?: Locale;
 }) {
+  const locale = opts.locale ?? "en";
   return {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -157,7 +182,8 @@ export function articleSchema(opts: {
     description: opts.description,
     dateModified: opts.updated,
     datePublished: opts.updated,
-    url: `${site.url}/${opts.slug}`,
+    url: `${site.url}${localeHref(locale, opts.slug)}`,
+    inLanguage: localeMeta[locale].htmlLang,
     publisher: { "@type": "Organization", name: site.name, url: site.url },
   };
 }

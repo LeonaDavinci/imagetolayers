@@ -1,4 +1,4 @@
-import { allPages } from "@/lib/content";
+import { allPages, jaPages } from "@/lib/content";
 import { site } from "@/lib/site";
 
 export const dynamic = "force-static";
@@ -43,6 +43,11 @@ ${guides.map((page) => `- ${page.h1}: ${site.url}/${page.slug}`).join("\n")}
 - Creator: $10/month billed yearly at $120, 12,000 credits per year
 - Studio: $30/month billed yearly at $360, 36,000 credits per year, API access
 - ${site.url}/pricing
+
+## 日本語ページ（Japanese）
+
+${jaPages.map((page) => `- ${page.h1}: ${site.url}/ja/${page.slug}`).join("\n")}
+- 料金: ${site.url}/ja/pricing
 
 ## Policies
 

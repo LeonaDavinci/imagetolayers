@@ -1,6 +1,9 @@
 import Link from "next/link";
-import { nav } from "@/lib/site";
+import { navFor } from "@/lib/site";
 import { LogoMark } from "@/components/logo";
+import LangSwitch from "@/components/lang-switch";
+import { uiCopy } from "@/lib/ui-copy";
+import { localeHref, type Locale } from "@/lib/i18n";
 
 function Chevron() {
   return (
@@ -10,7 +13,17 @@ function Chevron() {
   );
 }
 
-export default function SiteHeader() {
+export default function SiteHeader({
+  locale = "en",
+  paired = [],
+}: {
+  locale?: Locale;
+  paired?: string[];
+}) {
+  const t = uiCopy(locale);
+  const nav = navFor(locale);
+  const home = localeHref(locale);
+
   return (
     <header
       className="sticky top-0 z-50 border-b"
@@ -22,12 +35,12 @@ export default function SiteHeader() {
       }}
     >
       <div className="container-wide flex h-[62px] items-center justify-between gap-6">
-        <Link href="/" className="flex shrink-0 items-center gap-2.5" aria-label="Image to Layers home">
+        <Link href={home} className="flex shrink-0 items-center gap-2.5" aria-label={t.header.homeAria}>
           <LogoMark />
           <span className="text-[15px] font-semibold tracking-[-0.015em]">Image to Layers</span>
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
+        <nav className="hidden items-center gap-1 lg:flex" aria-label={t.header.navAria}>
           {nav.map((group) => (
             <div key={group.label} className="group relative">
               <button
@@ -56,19 +69,24 @@ export default function SiteHeader() {
             </div>
           ))}
           <Link
-            href="/pricing"
+            href={localeHref(locale, "pricing")}
             className="rounded-[7px] px-3 py-2 text-[13.5px] text-[#46536a] transition hover:bg-[#f3f5f8] hover:text-[#101828]"
           >
-            Pricing
+            {t.header.pricing}
           </Link>
         </nav>
 
         <div className="hidden items-center gap-4 lg:flex">
-          <Link href="/app" className="text-[13.5px] text-[#46536a] transition hover:text-[#101828]">
-            Sign in
+          <LangSwitch locale={locale} paired={paired} />
+          <span className="h-4 w-px" style={{ background: "var(--line-strong)" }} aria-hidden="true" />
+          <Link
+            href={localeHref(locale, "app")}
+            className="text-[13.5px] text-[#46536a] transition hover:text-[#101828]"
+          >
+            {t.header.signIn}
           </Link>
-          <Link href="/app" className="btn btn-primary btn-sm">
-            Start free
+          <Link href={localeHref(locale, "app")} className="btn btn-primary btn-sm">
+            {t.header.startFree}
           </Link>
         </div>
 
@@ -76,7 +94,7 @@ export default function SiteHeader() {
           <summary
             className="flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-[7px] border text-[#46536a]"
             style={{ borderColor: "var(--line-strong)" }}
-            aria-label="Open menu"
+            aria-label={t.header.openMenu}
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M2 4.5H14M2 8H14M2 11.5H14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -106,13 +124,20 @@ export default function SiteHeader() {
               </div>
             ))}
             <Link
-              href="/pricing"
+              href={localeHref(locale, "pricing")}
               className="block rounded-[7px] px-2 py-1.5 text-[13.5px] text-[#46536a] hover:bg-[#f5f7fa]"
             >
-              Pricing
+              {t.header.pricing}
             </Link>
-            <Link href="/app" className="btn btn-primary mt-3 w-full">
-              Start free
+            <div className="mt-2 border-t pt-2" style={{ borderColor: "var(--line)" }}>
+              <LangSwitch
+                locale={locale}
+                paired={paired}
+                className="block rounded-[7px] px-2 py-1.5 text-[13.5px] text-[#46536a] hover:bg-[#f5f7fa]"
+              />
+            </div>
+            <Link href={localeHref(locale, "app")} className="btn btn-primary mt-3 w-full">
+              {t.header.startFree}
             </Link>
           </div>
         </details>

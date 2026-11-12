@@ -2,30 +2,19 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { demoAssets, levelMeta } from "@/lib/content/layers";
+import { demoAssets } from "@/lib/content/layers";
+import { demoLabel, kindLabel, layerText } from "@/lib/content/layers-ja";
 import type { DemoKey } from "@/lib/content/types";
+import { localeHref, type Locale } from "@/lib/i18n";
+import { uiCopy, type LevelKey } from "@/lib/ui-copy";
 
 type Stage = "idle" | "running" | "done";
-type LevelKey = keyof typeof levelMeta;
 
-const shortLevel: Record<LevelKey, string> = {
-  L1: "Core",
-  L2: "Standard",
-  L3: "Detailed",
-  L4: "Parts",
-};
+const stageThresholds = [0, 18, 38, 58, 78, 92];
 
-const stageCopy: { at: number; label: string }[] = [
-  { at: 0, label: "Reading image structure" },
-  { at: 18, label: "Detecting subjects and objects" },
-  { at: 38, label: "Estimating occlusion order" },
-  { at: 58, label: "Reconstructing hidden background" },
-  { at: 78, label: "Building alpha masks" },
-  { at: 92, label: "Packing layer stack" },
-];
-
-export default function LayerWorkbench({ demo }: { demo: DemoKey }) {
+export default function LayerWorkbench({ demo, locale = "en" }: { demo: DemoKey; locale?: Locale }) {
   const asset = demoAssets[demo];
+  const t = uiCopy(locale);
   const [upload, setUpload] = useState<{ name: string; url: string; kb: number } | null>(null);
   const [level, setLevel] = useState<LevelKey>(asset.level);
   const [stage, setStage] = useState<Stage>("idle");
@@ -50,19 +39,22 @@ export default function LayerWorkbench({ demo }: { demo: DemoKey }) {
     };
   }, []);
 
-  const acceptFile = useCallback((file: File | undefined | null) => {
-    if (!file) return;
-    if (!file.type.startsWith("image/")) {
-      flash("That file type is not supported. Use JPG, PNG, or WebP.");
-      return;
-    }
-    setUpload((prev) => {
-      if (prev) URL.revokeObjectURL(prev.url);
-      return { name: file.name, url: URL.createObjectURL(file), kb: Math.round(file.size / 1024) };
-    });
-    setStage("idle");
-    setProgress(0);
-  }, [flash]);
+  const acceptFile = useCallback(
+    (file: File | undefined | null) => {
+      if (!file) return;
+      if (!file.type.startsWith("image/")) {
+        flash(t.workbench.toast.badType);
+        return;
+      }
+      setUpload((prev) => {
+        if (prev) URL.revokeObjectURL(prev.url);
+        return { name: file.name, url: URL.createObjectURL(file), kb: Math.round(file.size / 1024) };
+      });
+      setStage("idle");
+      setProgress(0);
+    },
+    [flash, t.workbench.toast.badType],
+  );
 
   const run = useCallback(() => {
     if (stage === "running") return;
@@ -93,10 +85,14 @@ export default function LayerWorkbench({ demo }: { demo: DemoKey }) {
   }, []);
 
   const activeLayer = asset.layers.find((l) => l.n === active) ?? asset.layers[0];
-  const stageLabel = [...stageCopy].reverse().find((s) => progress >= s.at)?.label ?? stageCopy[0].label;
-  const credits = levelMeta[level].credits;
+  const activeText = layerText(demo, activeLayer.n, locale);
+  const stages = t.workbench.stages.map((label, i) => ({ at: stageThresholds[i] ?? 100, label }));
+  const stageLabel = [...stages].reverse().find((s) => progress >= s.at)?.label ?? stages[0].label;
+  const credits = t.levels[level].credits;
   const running = stage === "running";
   const done = stage === "done";
+  const sampleLabel = demoLabel(demo, asset.label, locale);
+  const levelsHref = locale === "ja" ? localeHref(locale, "image-to-layers") : "/layer-levels";
 
   return (
     <div className="glass-strong overflow-hidden">
@@ -111,15 +107,15 @@ export default function LayerWorkbench({ demo }: { demo: DemoKey }) {
               <rect x="1.5" y="5.5" width="9" height="9" rx="2" stroke="#8A94A3" strokeWidth="1.2" />
               <rect x="5.5" y="1.5" width="9" height="9" rx="2" fill="#EFF4FF" stroke="#2563EB" strokeWidth="1.2" />
             </svg>
-            Layer studio
+            {t.workbench.studio}
           </span>
           <span className="hidden text-[12px] text-[#6b7280] sm:inline">
-            {upload ? `${upload.name} · ${upload.kb} KB` : `Sample · ${asset.label}`}
+            {upload ? `${upload.name} · ${upload.kb} KB` : `${t.workbench.sample} · ${sampleLabel}`}
           </span>
         </div>
         <div className="flex items-center gap-2 text-[11.5px] text-[#5b6879]">
-          <span className="tag">{credits} credits / run</span>
-          <span className="tag hidden sm:inline">PNG · ZIP · PSD</span>
+          <span className="tag">{t.workbench.creditsPerRun(credits)}</span>
+          <span className="tag hidden sm:inline">{t.workbench.exportTag}</span>
         </div>
       </div>
 
@@ -163,24 +159,24 @@ export default function LayerWorkbench({ demo }: { demo: DemoKey }) {
                   />
                 </svg>
               </div>
-              <p className="text-[14px] font-medium text-[#101828]">Drop an image to separate</p>
-              <p className="mt-1 text-[12.5px] text-[#5b6879]">JPG, PNG or WebP · up to 10 MB · one image per run</p>
+              <p className="text-[14px] font-medium text-[#101828]">{t.workbench.dropTitle}</p>
+              <p className="mt-1 text-[12.5px] text-[#5b6879]">{t.workbench.dropHint}</p>
               <div className="mt-4 flex items-center gap-2">
                 <button type="button" className="btn btn-primary btn-sm" onClick={() => inputRef.current?.click()}>
-                  Choose a file
+                  {t.workbench.chooseFile}
                 </button>
                 <button type="button" className="btn btn-ghost btn-sm" onClick={run}>
-                  Use sample
+                  {t.workbench.useSample}
                 </button>
               </div>
-              <p className="mt-3 text-[11px] text-[#6b7280]">Preview build · files stay in your browser</p>
+              <p className="mt-3 text-[11px] text-[#6b7280]">{t.workbench.browserOnly}</p>
             </div>
           ) : (
             <div className="relative overflow-hidden rounded-[10px] border" style={{ borderColor: "var(--line)" }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={upload.url}
-                alt={`${upload.name} uploaded for layer separation with Image to Layers`}
+                alt={t.workbench.uploadAlt(upload.name)}
                 className="max-h-[286px] w-full bg-[#f6f7f9] object-contain"
                 style={{ aspectRatio: "4 / 3" }}
               />
@@ -190,7 +186,7 @@ export default function LayerWorkbench({ demo }: { demo: DemoKey }) {
                 className="absolute right-2 top-2 rounded-[6px] border bg-white/95 px-2.5 py-1 text-[11px] text-[#344054] shadow-sm transition hover:bg-white"
                 style={{ borderColor: "var(--line)" }}
               >
-                Remove
+                {t.workbench.remove}
               </button>
             </div>
           )}
@@ -206,15 +202,15 @@ export default function LayerWorkbench({ demo }: { demo: DemoKey }) {
           <div className="mt-5">
             <div className="mb-2 flex items-center justify-between">
               <span className="text-[11.5px] font-medium uppercase tracking-[0.1em] text-[#6b7280]">
-                Layer level
+                {t.workbench.levelLabel}
               </span>
-              <Link href="/layer-levels" className="text-[11.5px] text-[#1d4ed8] hover:underline">
-                What are levels?
+              <Link href={levelsHref} className="text-[11.5px] text-[#1d4ed8] hover:underline">
+                {t.workbench.whatAreLevels}
               </Link>
             </div>
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-              {(Object.keys(levelMeta) as LevelKey[]).map((key) => {
-                const m = levelMeta[key];
+              {(Object.keys(t.levels) as LevelKey[]).map((key) => {
+                const m = t.levels[key];
                 const selected = level === key;
                 return (
                   <button
@@ -233,7 +229,7 @@ export default function LayerWorkbench({ demo }: { demo: DemoKey }) {
                       className="block whitespace-nowrap text-[12px] font-medium"
                       style={{ color: selected ? "#1d4ed8" : "#101828" }}
                     >
-                      {key} · {shortLevel[key]}
+                      {key} · {m.short}
                     </span>
                     <span className="block text-[10.5px] text-[#6b7280]">{m.range}</span>
                   </button>
@@ -244,21 +240,21 @@ export default function LayerWorkbench({ demo }: { demo: DemoKey }) {
 
           <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center">
             <button type="button" className="btn btn-primary w-full sm:flex-1" onClick={run} disabled={running}>
-              {running ? "Separating…" : done ? "Run again" : `Separate into layers · ${credits} cr`}
+              {t.workbench.run(credits, done, running)}
             </button>
             <button
               type="button"
               className="btn btn-ghost w-full sm:w-auto"
-              onClick={() => flash("Preview build — PSD export is disabled.")}
+              onClick={() => flash(t.workbench.toast.psd)}
             >
-              Export PSD
+              {t.workbench.exportPsd}
             </button>
           </div>
 
           {stage !== "idle" && (
             <div className="mt-4">
               <div className="mb-1.5 flex items-center justify-between text-[11.5px]">
-                <span className="text-[#344054]">{done ? "Layer stack ready" : stageLabel}</span>
+                <span className="text-[#344054]">{done ? t.workbench.stackReady : stageLabel}</span>
                 <span className="tabular-nums text-[#6b7280]">{Math.round(progress)}%</span>
               </div>
               <div className="h-1.5 w-full overflow-hidden rounded-full bg-[#e8ebef]">
@@ -274,7 +270,7 @@ export default function LayerWorkbench({ demo }: { demo: DemoKey }) {
         <div className="flex min-h-[286px] flex-col p-5">
           <div className="mb-3 flex items-center justify-between">
             <span className="text-[11.5px] font-medium uppercase tracking-[0.1em] text-[#6b7280]">
-              {done ? `Layers · ${asset.layers.length}` : "Output preview"}
+              {done ? t.workbench.layersCount(asset.layers.length) : t.workbench.outputPreview}
             </span>
             <span className="text-[11px] tabular-nums text-[#6b7280]">{asset.size}</span>
           </div>
@@ -284,10 +280,7 @@ export default function LayerWorkbench({ demo }: { demo: DemoKey }) {
               className="flex flex-1 flex-col justify-center rounded-[10px] border border-dashed p-5 text-center"
               style={{ borderColor: "var(--line)", background: "#fbfcfd" }}
             >
-              <p className="text-[13px] leading-relaxed text-[#5b6879]">
-                Run a separation to see the layer stack. Each row is one transparent PNG with its own
-                alpha mask.
-              </p>
+              <p className="text-[13px] leading-relaxed text-[#5b6879]">{t.workbench.previewEmpty}</p>
               <div className="mt-4 space-y-1.5 opacity-70">
                 {[92, 74, 86, 61].map((w, i) => (
                   <div key={i} className="flex items-center gap-2">
@@ -303,6 +296,7 @@ export default function LayerWorkbench({ demo }: { demo: DemoKey }) {
                 <ul className="space-y-1.5">
                   {asset.layers.map((l) => {
                     const on = activeLayer.n === l.n;
+                    const text = layerText(demo, l.n, locale);
                     return (
                       <li key={l.n}>
                         <button
@@ -319,9 +313,11 @@ export default function LayerWorkbench({ demo }: { demo: DemoKey }) {
                             {String(l.n).padStart(2, "0")}
                           </span>
                           <span className="min-w-0 flex-1">
-                            <span className="block truncate text-[12.5px] text-[#101828]">{l.name}</span>
+                            <span className="block truncate text-[12.5px] text-[#101828]">
+                              {text?.name ?? l.name}
+                            </span>
                             <span className="block text-[10.5px] text-[#6b7280]">
-                              {l.kind} · z {l.z}
+                              {kindLabel(l.kind, locale)} · z {l.z}
                             </span>
                           </span>
                           <span className="tag tag-accent">PNG</span>
@@ -336,27 +332,27 @@ export default function LayerWorkbench({ demo }: { demo: DemoKey }) {
                 style={{ borderColor: "var(--line)", background: "#fbfcfd" }}
               >
                 <p className="text-[12px] font-medium text-[#101828]">
-                  {String(activeLayer.n).padStart(2, "0")} · {activeLayer.name}
+                  {String(activeLayer.n).padStart(2, "0")} · {activeText?.name ?? activeLayer.name}
                 </p>
                 <p className="mt-1 text-[11px] leading-relaxed text-[#5b6879]">
-                  {activeLayer.note ?? "Isolated element with rebuilt edges."}
+                  {activeText?.note ?? activeLayer.note ?? t.workbench.defaultNote}
                 </p>
                 <div className="mt-2.5 flex gap-2">
                   <button
                     type="button"
                     className="rounded-[6px] border bg-white px-2.5 py-1 text-[11px] text-[#344054] transition hover:bg-[#f5f7fa]"
                     style={{ borderColor: "var(--line-strong)" }}
-                    onClick={() => flash("Preview build — PNG export is disabled.")}
+                    onClick={() => flash(t.workbench.toast.png)}
                   >
-                    Download PNG
+                    {t.workbench.downloadPng}
                   </button>
                   <button
                     type="button"
                     className="rounded-[6px] border bg-white px-2.5 py-1 text-[11px] text-[#344054] transition hover:bg-[#f5f7fa]"
                     style={{ borderColor: "var(--line-strong)" }}
-                    onClick={() => flash("Preview build — ZIP export is disabled.")}
+                    onClick={() => flash(t.workbench.toast.zip)}
                   >
-                    All layers
+                    {t.workbench.allLayers}
                   </button>
                 </div>
               </div>
@@ -369,11 +365,9 @@ export default function LayerWorkbench({ demo }: { demo: DemoKey }) {
         className="flex flex-wrap items-center justify-between gap-2 border-t px-4 py-2.5"
         style={{ borderColor: "var(--line)", background: "#fbfcfd" }}
       >
-        <p className="text-[11px] text-[#6b7280]">
-          Preview build · separation is simulated, sample layers are used
-        </p>
-        <Link href="/layer-levels" className="text-[11px] text-[#1d4ed8] hover:underline">
-          Layer level guide →
+        <p className="text-[11px] text-[#6b7280]">{t.workbench.footnote}</p>
+        <Link href={levelsHref} className="text-[11px] text-[#1d4ed8] hover:underline">
+          {t.workbench.levelGuide}
         </Link>
       </div>
 

@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { demoAssets } from "@/lib/content/layers";
+import { demoLabel } from "@/lib/content/layers-ja";
 import type { DemoKey } from "@/lib/content/types";
+import { localeHref, type Locale } from "@/lib/i18n";
+import { uiCopy } from "@/lib/ui-copy";
 
 function Check() {
   return (
@@ -23,13 +26,20 @@ export function TrustRow({ items }: { items: string[] }) {
   );
 }
 
-export function Breadcrumbs({ items }: { items: { name: string; path: string }[] }) {
+export function Breadcrumbs({
+  items,
+  locale = "en",
+}: {
+  items: { name: string; path: string }[];
+  locale?: Locale;
+}) {
+  const t = uiCopy(locale);
   return (
-    <nav aria-label="Breadcrumb" className="mb-6">
+    <nav aria-label={t.breadcrumbs.aria} className="mb-6">
       <ol className="flex flex-wrap items-center gap-1.5 text-[12px] text-[#6b7280]">
         <li>
-          <Link href="/" className="hover:text-[#101828]">
-            Home
+          <Link href={localeHref(locale)} className="hover:text-[#101828]">
+            {t.breadcrumbs.home}
           </Link>
         </li>
         {items.map((item) => (
@@ -107,13 +117,14 @@ export function CtaBand({
   );
 }
 
-export function DemoStrip({ active }: { active?: DemoKey }) {
+export function DemoStrip({ active, locale = "en" }: { active?: DemoKey; locale?: Locale }) {
   const keys: DemoKey[] = ["ecommerce", "cover", "live2d", "youtube"];
-  const meta: Record<DemoKey, { title: string; href: string }> = {
-    ecommerce: { title: "E-commerce product images", href: "/product-image-to-layers" },
-    cover: { title: "Covers and posters", href: "/cover-to-layers" },
-    live2d: { title: "Live2D characters", href: "/live2d-character-to-layers" },
-    youtube: { title: "YouTube thumbnails", href: "/youtube-thumbnail-to-layers" },
+  const t = uiCopy(locale);
+  const heroSlug: Record<DemoKey, string> = {
+    ecommerce: "product-image-to-layers",
+    cover: "cover-to-layers",
+    live2d: locale === "ja" ? "character-to-layers" : "live2d-character-to-layers",
+    youtube: "youtube-thumbnail-to-layers",
   };
   return (
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -123,7 +134,7 @@ export function DemoStrip({ active }: { active?: DemoKey }) {
         return (
           <Link
             key={key}
-            href={meta[key].href}
+            href={localeHref(locale, heroSlug[key])}
             className="card-link group overflow-hidden rounded-[12px] border bg-white"
             style={{ borderColor: isActive ? "#A9C6FA" : "var(--line)" }}
           >
@@ -131,7 +142,7 @@ export function DemoStrip({ active }: { active?: DemoKey }) {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={asset.src}
-                alt={`${asset.label} split into ${asset.layers.length} editable layers with Image to Layers`}
+                alt={t.demoStrip.alt(demoLabel(key, asset.label, locale), asset.layers.length)}
                 width={asset.width}
                 height={asset.height}
                 loading="lazy"
@@ -141,12 +152,12 @@ export function DemoStrip({ active }: { active?: DemoKey }) {
                 className="absolute left-2 top-2 rounded-[5px] border bg-white/95 px-1.5 py-0.5 text-[10px] font-medium text-[#344054]"
                 style={{ borderColor: "var(--line)" }}
               >
-                {asset.level} · {asset.layers.length} layers
+                {asset.level} · {t.demoStrip.layers(asset.layers.length)}
               </span>
             </div>
             <div className="flex items-center justify-between px-3 py-2.5">
-              <span className="text-[12.5px] font-medium text-[#101828]">{meta[key].title}</span>
-              <span className="text-[11px] text-[#6b7280] transition group-hover:text-[#1d4ed8]">Open →</span>
+              <span className="text-[12.5px] font-medium text-[#101828]">{t.demoStrip.titles[key]}</span>
+              <span className="text-[11px] text-[#6b7280] transition group-hover:text-[#1d4ed8]">{t.demoStrip.open}</span>
             </div>
           </Link>
         );
@@ -181,9 +192,12 @@ export function Note({ children }: { children: React.ReactNode }) {
 
 export function RelatedGrid({
   items,
+  locale = "en",
 }: {
-  items: { slug: string; title: string; eyebrow: string; demo: DemoKey }[];
+  items: { slug: string; href: string; title: string; eyebrow: string; demo: DemoKey }[];
+  locale?: Locale;
 }) {
+  const t = uiCopy(locale);
   return (
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
       {items.map((item) => {
@@ -191,7 +205,7 @@ export function RelatedGrid({
         return (
           <Link
             key={item.slug}
-            href={`/${item.slug}`}
+            href={item.href}
             className="card-link group flex flex-col overflow-hidden rounded-[12px] border bg-white"
             style={{ borderColor: "var(--line)" }}
           >
@@ -199,7 +213,7 @@ export function RelatedGrid({
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={asset.src}
-                alt={`${asset.label} example — image to layers`}
+                alt={t.related.alt(demoLabel(item.demo, asset.label, locale))}
                 width={asset.width}
                 height={asset.height}
                 loading="lazy"
@@ -213,7 +227,7 @@ export function RelatedGrid({
               <span className="mt-1 line-clamp-2 text-[13px] font-medium leading-snug text-[#101828]">
                 {item.title}
               </span>
-              <span className="mt-auto pt-2 text-[11px] text-[#1d4ed8]">Open →</span>
+              <span className="mt-auto pt-2 text-[11px] text-[#1d4ed8]">{t.related.open}</span>
             </div>
           </Link>
         );
