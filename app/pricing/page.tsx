@@ -3,7 +3,7 @@ import Link from "next/link";
 import JsonLd from "@/components/json-ld";
 import { CtaBand, SectionHeading } from "@/components/ui";
 import { levelMeta } from "@/lib/content/layers";
-import { buildMetadata, faqSchema } from "@/lib/seo";
+import { buildMetadata, breadcrumbSchema, faqSchema } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
@@ -118,6 +118,7 @@ export default function PricingPage() {
             })),
           },
           faqSchema(pricingFaq),
+          breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Pricing", path: "/pricing" }]),
         ]}
       />
 

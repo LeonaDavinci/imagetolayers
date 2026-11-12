@@ -496,6 +496,10 @@ export const ecommercePages: PageContent[] = [
         q: "What about animated ad formats?",
         a: "The separated stack is what makes parallax and layered motion possible in After Effects — separate the stills first, then animate the layers rather than the composite.",
       },
+      {
+        q: "Can I turn one product photo into several ads?",
+        a: "That is the workflow this page describes. Separate once at L3 so the product, headline, badge and background are independent, then rebuild the composition per placement instead of re-shooting per format.",
+      },
     ],
     related: [
       "product-image-to-layers",

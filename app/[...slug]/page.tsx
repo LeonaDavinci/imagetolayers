@@ -6,7 +6,7 @@ import LayerCanvas from "@/components/layer-canvas";
 import LayerWorkbench from "@/components/layer-workbench";
 import { RichText } from "@/components/rich-text";
 import { Breadcrumbs, CtaBand, Note, RelatedGrid, SectionHeading } from "@/components/ui";
-import { allPages, breadcrumbItems, getPage, relatedPages } from "@/lib/content";
+import { allPages, breadcrumbItems, childPages, getPage, relatedPages } from "@/lib/content";
 import { demoAssets } from "@/lib/content/layers";
 import type { PageContent, Section } from "@/lib/content/types";
 import {
@@ -212,6 +212,35 @@ function SampleStack({ demo }: { demo: PageContent["demo"] }) {
   );
 }
 
+/** Drops the shared "Image to Layers" prefix so a list of siblings reads cleanly. */
+function untitled(h1: string) {
+  const rest = h1.replace(/^image to layers\s*[:—–-]?\s*/i, "");
+  return rest.charAt(0).toUpperCase() + rest.slice(1);
+}
+
+function HubLinks({ items }: { items: PageContent[] }) {
+  return (
+    <div
+      className="grid grid-cols-1 gap-px overflow-hidden rounded-[12px] border [&>*:last-child:nth-child(odd)]:sm:col-span-2 sm:grid-cols-2"
+      style={{ borderColor: "var(--line)", background: "var(--line)" }}
+    >
+      {items.map((child) => (
+        <Link
+          key={child.slug}
+          href={`/${child.slug}`}
+          className="group flex flex-col bg-white p-4 transition hover:bg-[#f7f9fc] sm:p-5"
+        >
+          <span className="text-[10px] uppercase tracking-[0.12em] text-[#6b7280]">{child.eyebrow}</span>
+          <span className="mt-1.5 text-[13.5px] font-medium leading-snug text-[#101828] transition group-hover:text-[#1d4ed8]">
+            {untitled(child.h1)}
+          </span>
+          <span className="mt-1.5 text-[12.5px] leading-relaxed text-[#5b6879]">{child.description}</span>
+        </Link>
+      ))}
+    </div>
+  );
+}
+
 export default async function ContentPage({ params }: { params: Promise<{ slug: string[] }> }) {
   const { slug } = await params;
   const page: PageContent | undefined = getPage(slug.join("/"));
@@ -221,6 +250,7 @@ export default async function ContentPage({ params }: { params: Promise<{ slug: 
   const related = relatedPages(page.related);
   const asset = demoAssets[page.demo];
   const isLegal = page.cluster === "legal";
+  const children = childPages(page.slug);
 
   const schemas: Record<string, unknown>[] = [breadcrumbSchema([{ name: "Home", path: "/" }, ...crumbs])];
   if (page.faq.length) schemas.push(faqSchema(page.faq));
@@ -307,6 +337,17 @@ export default async function ContentPage({ params }: { params: Promise<{ slug: 
           ))}
         </div>
       </section>
+
+      {children.length ? (
+        <section className={isLegal ? "container-narrow pt-12" : "container-wide pt-12"}>
+          <SectionHeading
+            kicker="In this workflow"
+            title={`Every task under ${page.eyebrow.split("·")[0].trim().toLowerCase()}`}
+            lead="Same layer engine, different checklist. Pick the one that matches what you need to change."
+          />
+          <HubLinks items={children} />
+        </section>
+      ) : null}
 
       <section className={isLegal ? "container-narrow pt-10" : "container-wide pt-10"}>
         <SectionHeading kicker="FAQ" title={`Questions about ${page.eyebrow.split("·")[0].trim().toLowerCase()}`} />

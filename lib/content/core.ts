@@ -121,6 +121,14 @@ export const corePages: PageContent[] = [
         q: "Does it work on AI-generated images?",
         a: "Yes, and they are often easier because edges are clean and lighting is simple. Images with baked-in glow, bokeh or heavy stylistic texture are harder because the boundary between subject and background is genuinely ambiguous.",
       },
+      {
+        q: "Can I get just one layer instead of a full stack?",
+        a: "Yes — ask for L1 and hide everything except the element you need. If a single subject on transparency is the whole job, a plain background remover is cheaper; the stack earns its cost when a second element also has to move.",
+      },
+      {
+        q: "Can I go from a flat image to a layered PSD in one pass?",
+        a: "Yes. Choose PSD as the export format on the same run — the layers are not re-processed, only packaged. See [Image to PSD](/image-to-psd) for what the file contains.",
+      },
     ],
     related: [
       "image-to-psd",
@@ -235,6 +243,18 @@ export const corePages: PageContent[] = [
         q: "How large can the source image be?",
         a: "Up to 10 MB per upload in the preview build. Larger originals are supported on paid plans; the practical limit is the long edge of the source, not the file size alone.",
       },
+      {
+        q: "Is this the same as “image to PSD with layers”?",
+        a: "Yes — same job, different phrasing. The export is a genuine layered PSD: one layer per separated element, with names, alpha masks and the original stacking order, not a flattened image renamed to .psd.",
+      },
+      {
+        q: "Can I convert an image into an editable PSD form online for free?",
+        a: "The conversion runs in the browser with nothing to install. Inspecting the stack costs nothing; the download is the metered step, so confirm the level first and export once.",
+      },
+      {
+        q: "Will the text in the PSD still be editable?",
+        a: "Not as live type. Words return as a text-shaped layer holding the original pixels, so retype them in the PSD — the layer shows exactly where they sat and how much room they occupied.",
+      },
     ],
     related: ["image-to-layers", "extract-layers-from-image", "layer-levels", "cover-to-layers"],
     updated: "2026-11-11",
@@ -328,6 +348,10 @@ export const corePages: PageContent[] = [
         q: "What formats do you accept and return?",
         a: "Input JPG, PNG or WebP up to 10 MB. Output transparent PNGs, a ZIP stack, or a layered PSD at source resolution.",
       },
+      {
+        q: "Is this an object selector or a whole-image separator?",
+        a: "Both, at different depths. A selector returns the one region you pointed at and discards the rest; the separator returns every element plus the reconstructed background. Use L1 when you only need the object, L2 or L3 when the rest of the scene has to survive.",
+      },
     ],
     related: ["image-to-layers", "extract-layers-from-image", "compare/remove-bg-vs-image-to-layers", "layer-levels"],
     updated: "2026-11-11",
@@ -417,6 +441,10 @@ export const corePages: PageContent[] = [
       {
         q: "What happens to the rest of the image?",
         a: "It stays in the job record and in the base layer. You can download the full ZIP later without re-running the separation.",
+      },
+      {
+        q: "Can I see the image layers online before downloading anything?",
+        a: "Yes. The separated layers render on the canvas straight after the run, each one toggleable, so you can check edges and the reconstructed background before spending credits on an export.",
       },
     ],
     related: ["image-to-layers", "image-layer-separator", "image-to-psd", "how-it-works"],

@@ -106,6 +106,14 @@ export const live2dPages: PageContent[] = [
         q: "Can I separate a character that is already rigged?",
         a: "Only from a rendered flat image. If you have the original model, edit the source file instead — separating a render discards the rig.",
       },
+      {
+        q: "Is this an AI separator made for Live2D, or a general tool?",
+        a: "The model is general; the L4 level is tuned for character anatomy. That level is what turns a separator into something a rigger can accept — hair, face, eyes, clothing and limbs arrive as separate editing decisions rather than one subject.",
+      },
+      {
+        q: "Can I get image-to-layers rigging output without knowing Cubism?",
+        a: "Yes. You do not need the rigging app to produce a rig-ready handoff: the export is a named, depth-ordered PNG set with the parts a rig needs. Naming and ordering matter more than the tool — see [Live2D layer naming](/guides/live2d-layer-naming).",
+      },
     ],
     related: [
       "live2d-character-to-layers/vtuber",

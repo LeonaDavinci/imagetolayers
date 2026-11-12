@@ -1,4 +1,5 @@
 import { corePages } from "./core";
+import { aliasPages } from "./aliases";
 import { levelPages } from "./levels";
 import { ecommercePages } from "./ecommerce";
 import { coverPages } from "./covers";
@@ -11,6 +12,7 @@ import type { PageContent } from "./types";
 
 export const allPages: PageContent[] = [
   ...corePages,
+  ...aliasPages,
   ...levelPages,
   ...ecommercePages,
   ...coverPages,
@@ -64,6 +66,18 @@ export function relatedPages(slugs: string[]) {
 
 export function clusterPages(cluster: PageContent["cluster"]) {
   return allPages.filter((page) => page.cluster === cluster);
+}
+
+/**
+ * Direct children of a hub page: slugs one segment deeper, nothing recursive.
+ * Used by hub pages to expose their whole silo, which keeps every long-tail
+ * page one click from its parent even though the footer no longer lists them.
+ */
+export function childPages(slug: string): PageContent[] {
+  const prefix = `${slug}/`;
+  return allPages
+    .filter((page) => page.slug.startsWith(prefix) && !page.slug.slice(prefix.length).includes("/"))
+    .sort((a, b) => a.slug.localeCompare(b.slug));
 }
 
 export type { PageContent };
