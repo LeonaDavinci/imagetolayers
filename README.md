@@ -1,4 +1,6 @@
-# Image Layers
+# Image to Layers
+
+<a   href="https://www.image-layers.com" target="_blank"> image to layers converter</a>
 
 Marketing site and preview layer studio for **image-layers.com** — AI layer separation for
 e-commerce product images, covers and posters, Live2D characters, and YouTube thumbnails.
@@ -11,6 +13,7 @@ separation itself is simulated and the layer results shown come from sample asse
 - Next.js 16.2.4 (App Router, Turbopack), React 19, TypeScript
 - Tailwind CSS v4 (`@theme` tokens in `app/globals.css`)
 - No runtime dependencies beyond Next/React — all interactivity is local component state
+- llm api : openai image 
 
 ## Structure
 
