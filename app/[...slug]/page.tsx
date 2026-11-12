@@ -172,7 +172,7 @@ function LayerStack({
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={`/layers/${demo}/${layer.n}.webp`}
-                alt={`${layer.name} extracted as its own transparent layer`}
+                alt={`${layer.name} extracted from a ${asset.label} image as its own transparent layer`}
                 width={48}
                 height={48}
                 loading="lazy"

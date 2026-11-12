@@ -131,7 +131,7 @@ export function DemoStrip({ active }: { active?: DemoKey }) {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={asset.src}
-                alt={`${asset.label} example with ${asset.layers.length} separated layers`}
+                alt={`${asset.label} split into ${asset.layers.length} editable layers with Image to Layers`}
                 width={asset.width}
                 height={asset.height}
                 loading="lazy"
@@ -199,7 +199,7 @@ export function RelatedGrid({
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={asset.src}
-                alt={`${item.title} preview`}
+                alt={`${asset.label} example — image to layers`}
                 width={asset.width}
                 height={asset.height}
                 loading="lazy"

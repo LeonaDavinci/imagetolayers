@@ -52,6 +52,7 @@ const pillars = [
     title: "E-commerce product images",
     body: "Product, props and backdrop separated, so one shoot serves every marketplace.",
     pos: "50% 50%",
+    alt: "Skincare product photo split into product, prop and backdrop layers with Image to Layers",
   },
   {
     slug: "/cover-to-layers",
@@ -61,6 +62,7 @@ const pillars = [
     title: "Covers and posters",
     body: "Artwork stays, type comes apart, the field stretches to a new trim size.",
     pos: "50% 40%",
+    alt: "Editorial cover split into artwork, type and background layers with Image to Layers",
   },
   {
     slug: "/live2d-character-to-layers",
@@ -70,6 +72,7 @@ const pillars = [
     title: "Live2D characters",
     body: "Hair, face, eyes, clothing and tail as separate PNGs with depth order.",
     pos: "50% 0%",
+    alt: "Live2D character split into hair, face, eyes and clothing layers with Image to Layers",
   },
   {
     slug: "/youtube-thumbnail-to-layers",
@@ -79,6 +82,7 @@ const pillars = [
     title: "YouTube thumbnails",
     body: "Keep the face that performs, swap the headline, test one variable.",
     pos: "55% 45%",
+    alt: "YouTube thumbnail split into headline, subject and background layers with Image to Layers",
   },
 ];
 
@@ -186,7 +190,7 @@ export default function HomePage() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={pillar.meta}
-                      alt={`${pillar.title} example`}
+                      alt={pillar.alt}
                       width={demoAssets[pillar.demo as keyof typeof demoAssets].width}
                       height={demoAssets[pillar.demo as keyof typeof demoAssets].height}
                       loading="lazy"
@@ -282,7 +286,7 @@ export default function HomePage() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={demoAssets.ecommerce.src}
-                alt="Product photo separated into seven editable layers"
+                alt="Product photo split into seven editable layers with Image to Layers"
                 className="w-full"
                 width={demoAssets.ecommerce.width}
                 height={demoAssets.ecommerce.height}

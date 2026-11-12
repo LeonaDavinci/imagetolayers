@@ -93,7 +93,7 @@ export default function StudioPage() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={asset.src}
-                      alt={asset.label}
+                      alt={`${asset.label} sample in the Image to Layers studio`}
                       width={asset.width}
                       height={asset.height}
                       className="h-[72px] w-full object-cover"

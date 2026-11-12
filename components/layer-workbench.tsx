@@ -180,7 +180,7 @@ export default function LayerWorkbench({ demo }: { demo: DemoKey }) {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={upload.url}
-                alt={upload.name}
+                alt={`${upload.name} uploaded for layer separation with Image to Layers`}
                 className="max-h-[286px] w-full bg-[#f6f7f9] object-contain"
                 style={{ aspectRatio: "4 / 3" }}
               />

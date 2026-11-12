@@ -23,7 +23,7 @@ export default function LayerCanvas({ demo, active, onActive, className }: Props
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={asset.src}
-          alt={`${asset.label} separated into ${asset.layers.length} editable layers`}
+          alt={`${asset.label} split into ${asset.layers.length} editable layers with Image to Layers`}
           width={asset.width}
           height={asset.height}
           className="block h-auto w-full select-none"
