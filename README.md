@@ -2,6 +2,8 @@
 
 <a   href="https://www.image-layers.com" target="_blank"> image to layers converter</a>
 
+<img width="1147" height="703" alt="image-layers converter homepage" src="https://github.com/user-attachments/assets/a525696e-7d90-47bd-b268-f87185482d2e" />
+
 Marketing site and preview layer studio for **image-layers.com** — AI layer separation for
 e-commerce product images, covers and posters, Live2D characters, and YouTube thumbnails.
 
